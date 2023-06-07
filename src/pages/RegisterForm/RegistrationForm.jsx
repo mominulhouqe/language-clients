@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
-import { updateCurrentUser } from 'firebase/auth';
 import Swal from 'sweetalert2';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
@@ -14,6 +13,7 @@ const RegistrationForm = () => {
     formState: { errors },
   } = useForm();
 
+
   const { createUser, updatedUserProfiles } = useContext(AuthContext);
 
   const onSubmit = (data) => {
@@ -23,17 +23,21 @@ const RegistrationForm = () => {
       .then((result) => {
         const createdUser = result.user;
 
+        updatedUserProfiles(data.name, data.photoURL)
+          .then(() => {
+            console.log('Profile updated successfully');
+
+          })
+          .catch((error) => {
+            console.log('Error updating profile:', error.message);
+          });
         Swal.fire({
           icon: 'success',
           title: 'Registration Successful',
           text: 'You have successfully registered.',
         });
 
-        navigate('/login');
-        return updatedUserProfiles(auth.currentUser, {
-          displayName: data.name,
-          photoURL: data.photoURL,
-        });
+
       })
       .catch((error) => {
         Swal.fire({
@@ -47,10 +51,7 @@ const RegistrationForm = () => {
 
   return (
     <div className="my-12 rounded-xl shadow-2xl p-6 max-w-sm mx-auto">
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        
-      >
+      <form onSubmit={handleSubmit(onSubmit)}>
         <h1 className="font-bold text-2xl my-6">Please Register Here !!!</h1>
         <div className="mb-4">
           <label htmlFor="name" className="block mb-2 font-medium">
@@ -127,7 +128,9 @@ const RegistrationForm = () => {
           </div>
         </div>
         <div className="my-4">
-          <Link to="/login" className="text-blue-500 underline">Already have an account </Link>
+          <Link to="/login" className="text-blue-500 underline">
+            Already have an account
+          </Link>
         </div>
 
         {/* Social Login */}
@@ -139,14 +142,12 @@ const RegistrationForm = () => {
               className="w-full px-4 py-2 btn btn-primary cursor-pointer"
             />
           </div>
-
         </div>
       </form>
       <div className="mb-4">
-        <SocialLogin></SocialLogin>
-        </div>
+        <SocialLogin />
+      </div>
     </div>
-
   );
 };
 
