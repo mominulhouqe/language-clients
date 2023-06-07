@@ -19,7 +19,7 @@ const Navbar = () => {
         <Link to="/class">Classes</Link>
       </li>
       <li>
-        <Link to="/dashboard">Dashboard</Link>
+        <Link to="/dashboard/myclass">Dashboard</Link>
       </li>
       {user ? (
         <>
