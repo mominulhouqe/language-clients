@@ -11,7 +11,7 @@ const Navbar = () => {
         <li> <Link to='/user'>user</Link> </li>
         <div className="space-x-2">
             <Link to='/login' className="btn">Login</Link>
-            <Link to='/login' className="btn">Logout</Link>
+            <Link to='/register' className="btn">Logout</Link>
 
         </div>
 
