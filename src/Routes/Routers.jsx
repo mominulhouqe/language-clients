@@ -4,6 +4,8 @@ import Home from "../pages/Home/Home/Home";
 import RegistrationForm from "../pages/RegisterForm/RegistrationForm";
 import LoginForm from "../pages/Login/LoginForm";
 import NotFounded from "../Components/NotFounded/NotFounded";
+import Instructors from "../pages/Instractors/Instractors/Instructors";
+import InstructorClasses from "../pages/Instractors/InstructorClasses/InstructorClasses";
 
 export const router = createBrowserRouter([
     {
@@ -15,6 +17,17 @@ export const router = createBrowserRouter([
                 path:'/',
                 element:<Home />
             },
+            {
+                path:'instructors',
+                element:<Instructors></Instructors>
+
+            },
+            {
+                path:'instructors/:instructorId',
+                element:<InstructorClasses></InstructorClasses>
+
+            },
+
             {
                 path:'login',
                 element:<LoginForm />
