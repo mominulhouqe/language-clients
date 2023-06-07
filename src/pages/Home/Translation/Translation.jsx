@@ -7,7 +7,7 @@ const Translation = () => {
                 <div className="hero-content flex flex-col lg:flex-row-reverse ">
                     <div className="w-full lg:w-1/2">
                         <div className="flex justify-center items-center">
-                            <h1 className="w-1/2">QUALITY YOU CONTROL</h1>
+                            <h1 className=" my-6  text-2xl font-extrabold">QUALITY YOU CONTROL</h1>
                             <div className="border-t-4 border-indigo-500 ..."></div>
                         </div>
                         <h1 className="text-5xl font-bold">Highly Creative Translation</h1>

@@ -7,40 +7,53 @@ import NotFounded from "../Components/NotFounded/NotFounded";
 import Instructors from "../pages/Instractors/Instractors/Instructors";
 import InstructorClasses from "../pages/Instractors/InstructorClasses/InstructorClasses";
 import ClassesPage from "../pages/Class/ClassesPage/ClassesPage";
+import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
+import Myclass from "../pages/Dashboard/MyClass/Myclass";
 
 export const router = createBrowserRouter([
     {
-        path:'/',
-        element:<Main />,
-        errorElement:<NotFounded></NotFounded>,
-        children:[
+        path: '/',
+        element: <Main />,
+        errorElement: <NotFounded></NotFounded>,
+        children: [
             {
-                path:'/',
-                element:<Home />
+                path: '/',
+                element: <Home />
             },
             {
-                path:'instructors',
-                element:<Instructors></Instructors>
+                path: 'instructors',
+                element: <Instructors></Instructors>
 
             },
             {
-                path:'instructors/:instructorId',
-                element:<InstructorClasses></InstructorClasses>
+                path: 'instructors/:instructorId',
+                element: <InstructorClasses></InstructorClasses>
 
             },
 
             {
-                path:'class',
-                element:<ClassesPage></ClassesPage>
+                path: 'class',
+                element: <ClassesPage></ClassesPage>
+            },
+
+            {
+                path: 'login',
+                element: <LoginForm />
             },
             {
-                path:'login',
-                element:<LoginForm />
-            },
-            {
-                path:'register',
-                element:<RegistrationForm />
+                path: 'register',
+                element: <RegistrationForm />
             }
         ]
-    }
+    },
+    {
+        path: 'dashboard',
+        element: <Dashboard />,
+        children:[
+            {
+                path:'myclass',
+                element:<Myclass></Myclass>
+            }
+        ]
+    },
 ])
