@@ -6,6 +6,7 @@ import LoginForm from "../pages/Login/LoginForm";
 import NotFounded from "../Components/NotFounded/NotFounded";
 import Instructors from "../pages/Instractors/Instractors/Instructors";
 import InstructorClasses from "../pages/Instractors/InstructorClasses/InstructorClasses";
+import ClassesPage from "../pages/Class/ClassesPage/ClassesPage";
 
 export const router = createBrowserRouter([
     {
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
 
             },
 
+            {
+                path:'class',
+                element:<ClassesPage></ClassesPage>
+            },
             {
                 path:'login',
                 element:<LoginForm />
