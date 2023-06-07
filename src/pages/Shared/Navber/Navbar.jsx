@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../provider/AuthProvider';
 import { FaSignOutAlt } from 'react-icons/fa';
+import Banner from '../../Home/Banner/Banner';
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -48,7 +49,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="navbar bg-gray-800 text-white font-serif">
+      <div className="navbar fixed z-10  bg-gray-800 text-white font-serif">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
