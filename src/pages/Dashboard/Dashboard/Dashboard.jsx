@@ -5,7 +5,8 @@ import { FaBook, FaHome, FaCalendarAlt, FaUsers, FaFileInvoice, FaMoneyBill } fr
 
 const Dashboard = () => {
     const isAdmin = true;
-    const isInstructor = true;
+    const isInstructor = false;
+
 
     return (
         <div className="drawer drawer-end lg:drawer-open">
@@ -19,7 +20,7 @@ const Dashboard = () => {
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-80 h-full bg-sky-900 text-white">
                     {/* Sidebar content here */}
-                    {isAdmin ? (
+                    { isAdmin && (
                         <>
                             <li>
                                 <NavLink to="/dashboard/adminhome">
@@ -40,8 +41,9 @@ const Dashboard = () => {
                                 </NavLink>
                             </li>
                         </>
-                    ) : (
+                    )}
 
+                    {!isAdmin && isInstructor && (
                         <>
                             <div className="divider my-4"></div>
                             <li>
@@ -58,42 +60,32 @@ const Dashboard = () => {
                             </li>
                         </>
                     )}
-                    {/* {isInstructor ? (
+
+                    {!isAdmin && !isInstructor && (
                         <>
                             <div className="divider my-4"></div>
                             <li>
-                                <NavLink to="/dashboard/addAClass">
+                                <NavLink to="/dashboard/myclass">
                                     <FaBook className="mr-2" />
-                                    Add a Class
+                                    My Selected Classes
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/myClasses">
+                                <NavLink to="/dashboard/enrolled">
                                     <FaBook className="mr-2" />
-                                    My Classes
+                                    My Enrolled Classes
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/payment">
+                                    <FaMoneyBill className="mr-2" />
+                                    Payment
                                 </NavLink>
                             </li>
                         </>
-                    ) : null} */}
-                    <div className="divider my-4"></div>
-                    <li>
-                        <NavLink to="/dashboard/myclass">
-                            <FaBook className="mr-2" />
-                            My Selected Classes
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/dashboard/enrolled">
-                            <FaBook className="mr-2" />
-                            My Enrolled Classes
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/dashboard/payment">
-                            <FaMoneyBill className="mr-2" />
-                            Payment
-                        </NavLink>
-                    </li>
+                    )}
+
+
                 </ul>
             </div>
         </div>
