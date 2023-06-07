@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { FaGoogle } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const RegistrationForm = () => {
     const {
@@ -91,7 +92,9 @@ const RegistrationForm = () => {
                     )}
                 </div>
             </div>
-
+            <div className="my-4">
+                    <Link to="/register" className="text-blue-500">Already have an account </Link>
+                </div>
 
 
 
