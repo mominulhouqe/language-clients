@@ -4,6 +4,7 @@ import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 const LoginForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -53,6 +54,7 @@ const LoginForm = () => {
             <input
               type="email"
               id="email"
+              placeholder='Enter your email'
               className="w-full border-gray-300 border py-2 px-3 rounded focus:outline-none focus:ring focus:ring-blue-200"
               {...register('email', { required: true })}
             />
@@ -65,6 +67,7 @@ const LoginForm = () => {
             <div className="flex items-center">
               <input
                 type={passwordVisible ? 'text' : 'password'}
+                placeholder='Enter your password'
                 id="password"
                 className="w-full border-gray-300 border py-2 px-3 rounded focus:outline-none focus:ring focus:ring-blue-200"
                 {...register('password', { required: true })}
@@ -91,15 +94,10 @@ const LoginForm = () => {
           </button>
         </form>
         <div className="mt-4">
-          <Link to="/register" className="text-blue-500">Create an account</Link>
+          <Link to="/register" className="text-blue-500 underline">Create an account</Link>
         </div>
         <div className="mt-4 mx-auto">
-          <button
-            type="button"
-            className="py-2 btn btn-info btn-outline px-4 rounded-full focus:outline-none focus:ring focus:ring-blue-200"
-          >
-            <FaGoogle /> Sign in with Google
-          </button>
+          <SocialLogin></SocialLogin>
         </div>
       </div>
     </div>
