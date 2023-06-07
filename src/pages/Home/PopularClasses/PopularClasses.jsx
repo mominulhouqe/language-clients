@@ -1,4 +1,5 @@
 import React from "react";
+import { FaVideo } from "react-icons/fa";
 
 const popularClassesData = [
   {
@@ -42,7 +43,10 @@ const PopularClasses = () => {
             <div key={classItem.id} className="bg-white p-4 rounded-lg shadow-xl">
               <img src={classItem.image} alt={classItem.title} className="w-full h-80 object-cover mb-4" />
               <h3 className="text-xl font-bold">{classItem.title}</h3>
-              <p className="text-gray-600">Students: {classItem.students}</p>
+              <div className="flex items-center justify-between">
+                <p className="text-gray-600">Students: {classItem.students}</p>
+                <button className="btn"> <FaVideo></FaVideo> Watch video</button>
+              </div>
             </div>
           ))}
         </div>
