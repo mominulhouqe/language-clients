@@ -41,28 +41,7 @@ const Dashboard = () => {
                             </li>
                         </>
                     ) : (
-                        <>
-                            <li>
-                                <NavLink to="/dashboard/userhome">
-                                    <FaHome className="mr-2" />
-                                    User Home
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink to="/">
-                                    <FaCalendarAlt className="mr-2" />
-                                    Reservations
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink to="/">
-                                    <FaFileInvoice className="mr-2" />
-                                    Payment History
-                                </NavLink>
-                            </li>
-                        </>
-                    )}
-                    {isInstructor ? (
+
                         <>
                             <div className="divider my-4"></div>
                             <li>
@@ -78,7 +57,24 @@ const Dashboard = () => {
                                 </NavLink>
                             </li>
                         </>
-                    ) : null}
+                    )}
+                    {/* {isInstructor ? (
+                        <>
+                            <div className="divider my-4"></div>
+                            <li>
+                                <NavLink to="/dashboard/addAClass">
+                                    <FaBook className="mr-2" />
+                                    Add a Class
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/myClasses">
+                                    <FaBook className="mr-2" />
+                                    My Classes
+                                </NavLink>
+                            </li>
+                        </>
+                    ) : null} */}
                     <div className="divider my-4"></div>
                     <li>
                         <NavLink to="/dashboard/myclass">
