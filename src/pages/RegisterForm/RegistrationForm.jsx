@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const RegistrationForm = () => {
     const {
@@ -10,9 +11,21 @@ const RegistrationForm = () => {
         formState: { errors },
     } = useForm();
 
+    const {createUser} = useContext(AuthContext)
+
     const onSubmit = (data) => {
         // Handle registration logic here
         console.log(data);
+        createUser(data.email, data.password)
+        .then(result =>{
+            const createdUser = result.user
+            console.log(createdUser);
+        })
+        .catch(error =>console.log(error.message))
+
+
+
+
     };
 
     return (
@@ -93,7 +106,7 @@ const RegistrationForm = () => {
                 </div>
             </div>
             <div className="my-4">
-                    <Link to="/register" className="text-blue-500">Already have an account </Link>
+                    <Link to="/login" className="text-blue-500">Already have an account </Link>
                 </div>
 
 

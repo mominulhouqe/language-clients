@@ -1,16 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link , useNavigate, useLocation} from 'react-router-dom';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const LoginForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [passwordVisible, setPasswordVisible] = useState(false);
 
+    // const {singIn} = useContext(AuthContext);
+    // const navigate = useNavigate();
+    // const location = useLocation();
+    // const from = location.state?.from?.pathname || '/'
+
+
+
+
     const onSubmit = (data) => {
         // Handle login logic here
         console.log(data);
+// singIn(email,  password)
+// .then(result =>)
+
+
+
     };
 
     const togglePasswordVisibility = () => {

@@ -31,16 +31,16 @@ const AuthProvider = ({ children }) => {
             displayName: name, photoURL: photo
         })
     }
-    const signInGoogle =()=>{
+    const signInGoogle = () => {
         return signInWithPopup(auth, googleProvider);
     }
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
+            setLoading(false)
             setUser(currentUser);
-            setLoading(flase)
         })
-        return ()=>{
+        return () => {
             return unsubscribe();
         }
     }, [])
@@ -51,12 +51,14 @@ const AuthProvider = ({ children }) => {
         loading,
         createUser,
         signIn,
-        signInGoogle
+        signInGoogle,
+        logOut,
+        updatedUserProfiles
     }
 
     return (
         <AuthContext.Provider value={authInfo}>
-
+            {children}
         </AuthContext.Provider>
     );
 };
