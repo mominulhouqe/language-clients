@@ -1,44 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-
-const popularInstructorsData = [
-  {
-    id: 1,
-    image: "https://i.ibb.co/abc123/instructor1.jpg",
-    name: "John Doe",
-    classTitle: "Spanish Language",
-    students: 15,
-  },
-  {
-    id: 2,
-    image: "https://i.ibb.co/abc123/instructor2.jpg",
-    name: "Jane Smith",
-    classTitle: "French Language",
-    students: 20,
-  },
-  {
-    id: 3,
-    image: "https://i.ibb.co/abc123/instructor2.jpg",
-    name: "Jane Smith",
-    classTitle: "French Language",
-    students: 1230,
-  },
-  {
-    id: 4,
-    image: "https://i.ibb.co/abc123/instructor2.jpg",
-    name: "Jane Smith",
-    classTitle: "French Language",
-    students: 1240,
-  },
-  {
-    id: 5,
-    image: "https://i.ibb.co/abc123/instructor2.jpg",
-    name: "Jane Smith",
-    classTitle: "French Language",
-    students: 1240,
-  },
-  // Add more instructor data
-];
+import useInstructor from "../../../hooks/useInstructor";
 
 const container = {
   hidden: { opacity: 1, scale: 0 },
@@ -61,7 +23,8 @@ const item = {
 };
 
 const PopularInstructors = () => {
-  const popularInstructors = popularInstructorsData.slice(0, 6);
+  const [instructors] = useInstructor()
+  const popularInstructors = instructors.slice(0, 6);
 
   return (
     <section className="py-12 bg-gray-100">

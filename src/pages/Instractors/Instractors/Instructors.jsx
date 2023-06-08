@@ -1,33 +1,17 @@
 import React from 'react';
+import useInstructor from '../../../hooks/useInstructor';
 
-const instructors = [
-  // Replace these dummy instructor data with your actual instructor data
-  {
-    id: 1,
-    name: 'John Doe',
-    image: 'instructor1.jpg',
-    email: 'johndoe@example.com',
-    numClasses: 5,
-    classNames: ['Mathematics', 'Science', 'English'],
-  },
-  {
-    id: 2,
-    name: 'Jane Smith',
-    image: 'instructor2.jpg',
-    email: 'janesmith@example.com',
-    numClasses: 3,
-    classNames: ['History', 'Geography'],
-  },
-  // ...
-];
 
 const Instructors = () => {
+
+  const [instructors] =useInstructor()
+
   return (
     <div className="container mx-auto">
       <h2 className="text-3xl font-bold mb-4">Instructors</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {instructors.map((instructor) => (
-          <div key={instructor.id} className="bg-white p-4 rounded-md shadow-md">
+          <div key={instructor._id} className="bg-white p-4 rounded-md shadow-md">
             <img
               src={(`./images/${instructor.image}`).default}
               alt={instructor.name}
