@@ -33,7 +33,7 @@ const PopularInstructors = () => {
           Popular Instructors
         </h2>
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-4 gap-8"
           variants={container}
           initial="hidden"
           animate="visible"
@@ -41,7 +41,7 @@ const PopularInstructors = () => {
           {popularInstructors.map((instructor) => (
             <motion.div
               key={instructor.id}
-              className="flex shadow-2xl gap-2 flex-col items-center"
+              className="flex p-6 shadow-2xl gap-2 flex-col items-center"
               variants={item}
             >
               <img
@@ -49,9 +49,9 @@ const PopularInstructors = () => {
                 alt={instructor.name}
                 className="w-32 h-32 rounded-full mb-4"
               />
-              <h3 className="text-xl font-semibold mb-2">{instructor.name}</h3>
-              <p className="text-gray-600">{instructor.classTitle}</p>
-              <p className="text-gray-600">{instructor.students} Students</p>
+              <h3 className="text-xl font-semibold mb-2"> {instructor.name}</h3>
+              <p className="text-gray-600">{instructor.title}</p>
+              <p className="text-gray-600"> Students : {instructor.students}</p>
             </motion.div>
           ))}
         </motion.div>

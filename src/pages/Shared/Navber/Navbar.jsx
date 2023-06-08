@@ -23,7 +23,7 @@ const Navbar = () => {
       </li>
       {user ? (
         <>
-          <div className="flex justify-center items-center">
+          <div className="flex justify-center mx-2 items-center">
             {user.photoURL && (
               <div className="relative">
                 <img src={user.photoURL} alt="Profile" className="h-8 w-8 rounded-full" />
@@ -49,8 +49,9 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="navbar fixed z-10  bg-gray-800 text-white font-serif">
-        <div className="navbar-start">
+      <div className="navbar fixed z-10 bg-gray-800 text-white font-serif">
+        <div className="navbar-start ">
+
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
@@ -65,16 +66,21 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-gray-800 text-white font-serif rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 p-4 shadow bg-gray-800 text-white font-serif rounded-box w-52"
             >
               {menuItems}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">FluentJourney</a>
+          <div className='flex justify-between items-center gap-10'>
+            <img src="https://i.ibb.co/KwFsQVB/my-img1-1.jpg" className="w-10 h-10  rounded-full" alt="" />
+            <a className="btn btn-ghost normal-case text-xl">FluentJourney</a>
+          </div>
+
         </div>
-        <div className="navbar-center hidden lg:flex">
+        <div className="navbar-center  hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{menuItems}</ul>
         </div>
+
       </div>
     </div>
   );
