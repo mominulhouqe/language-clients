@@ -3,35 +3,6 @@ import { FaVideo } from "react-icons/fa";
 import useMenu from "../../../hooks/useMenu";
 import { log } from "react-modal/lib/helpers/ariaAppHider";
 
-// const popularClassesData = [
-//   {
-//     id: 1,
-//     image: "https://i.ibb.co/KwFsQVB/my-img1-1.jpg",
-//     title: "Yoga Class",
-//     students: 150,
-//   },
-//   {
-//     id: 2,
-//     image: "https://i.ibb.co/NyQhDBZ/my-img1.jpg",
-//     title: "Dance Workshop",
-//     students: 1520,
-//   },
-//   {
-//     id: 3,
-//     image: "https://i.ibb.co/37bdwrH/my-img1.png",
-//     title: "Cooking Class",
-//     students: 100,
-//   },
-//   {
-//     id: 4,
-//     image: "https://i.ibb.co/37bdwrH/my-img1.png",
-//     title: "Cooking Class",
-//     students: 7600,
-//   },
-
-// ];
-
-
 
 
 const PopularClasses = () => {

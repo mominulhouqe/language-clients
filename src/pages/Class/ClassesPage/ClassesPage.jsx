@@ -1,29 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import useMenu from "../../../hooks/useMenu";
+import { AuthContext } from "../../../provider/AuthProvider";
 
-const classesData = [
-  {
-    id: 1,
-    image: "https://example.com/image1.jpg",
-    name: "Class 1",
-    instructor: "John Doe",
-    availableSeats: 5,
-    price: 50,
-  },
-  {
-    id: 2,
-    image: "https://example.com/image2.jpg",
-    name: "Class 2",
-    instructor: "Jane Smith",
-    availableSeats: 0,
-    price: 40,
-  },
-  // Add more class data
-];
+const ClassesPage = ({ isAdmin }) => {
+  const [menu] = useMenu();
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-const ClassesPage = ({ isLoggedIn, isAdmin }) => {
   const handleSelectClass = (classId) => {
-    if (!isLoggedIn) {
+    if (!user) {
       alert("Please log in to select a class.");
+      navigate("/login"); // Redirect the user to the login page
       return;
     }
 
@@ -34,14 +22,14 @@ const ClassesPage = ({ isLoggedIn, isAdmin }) => {
     <div className="container mx-auto py-8">
       <h2 className="text-3xl font-semibold mb-4">Approved Classes</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {classesData.map((classItem) => (
+        {menu.map((classItem) => (
           <div
-            key={classItem.id}
+            key={classItem._id}
             className={`bg-white rounded-lg shadow-lg ${
               classItem.availableSeats === 0 ? "bg-red-100" : ""
             }`}
           >
-            <img src={classItem.image} alt={classItem.name} className="w-full rounded-t-lg" />
+            <img src={classItem.image} alt={classItem.name} className="w-full h-80 rounded-t-lg" />
             <div className="p-4">
               <h3 className="text-lg font-semibold mb-2">{classItem.name}</h3>
               <p className="text-gray-600 mb-2">Instructor: {classItem.instructor}</p>
