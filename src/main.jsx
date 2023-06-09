@@ -7,7 +7,7 @@ import { router } from './Routes/Routers.jsx'
 import AuthProvider from './provider/AuthProvider.jsx'
 
 import {
-  
+
   QueryClient,
   QueryClientProvider,
 } from 'react-query'
@@ -20,11 +20,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
     {/* <RouterProvider router={router}></RouterProvider> */}
 
-    <QueryClientProvider client={queryClient}>
-
-      <AuthProvider>
+    <AuthProvider>
+      <QueryClientProvider client={queryClient}>
+        
         <RouterProvider router={router}></RouterProvider>
-      </AuthProvider>
-    </QueryClientProvider>
+
+      </QueryClientProvider>
+    </AuthProvider>
   </React.StrictMode>,
 )

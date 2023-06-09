@@ -3,9 +3,12 @@ import { FaVideo } from "react-icons/fa";
 import useMenu from "../../../hooks/useMenu";
 import "aos/dist/aos.css";
 import AOS from "aos";
+import useInstructor from "../../../hooks/useInstructor";
 
 const PopularClasses = () => {
   const [menu] = useMenu();
+  // const [instructors, loading] = useInstructor
+
 
   const popularClasses = menu
     .sort((a, b) => b.students - a.students)

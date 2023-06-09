@@ -20,25 +20,42 @@ const RegistrationForm = () => {
     // Handle registration logic here
     console.log(data);
     createUser(data.email, data.password)
-      .then((result) => {
-        const createdUser = result.user;
+      .then(result => {
+
+        const loggedUser = result.user;
+        console.log(loggedUser);
 
         updatedUserProfiles(data.name, data.photoURL)
           .then(() => {
-            console.log('Profile updated successfully');
+            const saveUser = { name: data.name, email: data.email }
+            fetch('http://localhost:5000/users', {
+              method: 'POST',
+              headers: {
+                'content-type': 'application/json'
+              },
+              body: JSON.stringify(saveUser)
+            })
+              .then(res => res.json())
+              .then(data => {
+                if (data.insertedId) {
+                  reset();
+                  Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'User created successfully.',
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                  navigate('/');
+                }
+              })
+
+
 
           })
-          .catch((error) => {
-            console.log('Error updating profile:', error.message);
-          });
-        Swal.fire({
-          icon: 'success',
-          title: 'Registration Successful',
-          text: 'You have successfully registered.',
-        });
-
-
+          .catch(error => console.log(error))
       })
+
       .catch((error) => {
         Swal.fire({
           icon: 'error',
@@ -47,6 +64,7 @@ const RegistrationForm = () => {
         });
         console.log(error.message);
       });
+
   };
 
   return (
