@@ -18,7 +18,8 @@ const ClassesPage = ({ isAdmin }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const [menu] = useMenu()
-  const [refetch]  = useCart()
+  const {refetch} = useCart();
+
 
   useEffect(() => {
     AOS.init({
@@ -34,6 +35,7 @@ const ClassesPage = ({ isAdmin }) => {
       const selectedId = {
         menuItemId: classItem._id,
         name:classItem.instructor,
+      
         image: classItem.image,
         title:classItem.title,
         students:classItem.students,
@@ -43,7 +45,7 @@ const ClassesPage = ({ isAdmin }) => {
       };
       console.log(selectedId);
 
-      fetch("http://localhost:5000/classes", {
+      fetch("http://localhost:5000/carts", {
         method: "POST",
         headers: {
           'content-type': 'application/json'
@@ -53,13 +55,12 @@ const ClassesPage = ({ isAdmin }) => {
         .then((res) => res.json())
         .then((data) => {
           if (data.insertedId) {
-        
             Swal.fire({
               icon: "success",
               title: "Success",
               text: "Added your class",
             });
-            refetch();
+            refetch(); 
           } else {
             Swal.fire({
               icon: "error",

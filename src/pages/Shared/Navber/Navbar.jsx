@@ -9,8 +9,8 @@ import { log } from 'react-modal/lib/helpers/ariaAppHider';
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
 
-  const [cart] = useCart();
-  console.log(cart.length);
+  const {cart, refetch} = useCart();
+console.log(cart.length);
 
   const handleLogOut =()=>{
     logOut()
@@ -30,7 +30,7 @@ const Navbar = () => {
         <Link to="/instructors">Instructors</Link>
       </li>
       <li>
-        <Link to="/class">Classes </Link>
+        <Link to="/class">Classes {cart?.length || 0}</Link>
       </li>
       <li>
         <Link to="/dashboard/myclass">Dashboard </Link>
