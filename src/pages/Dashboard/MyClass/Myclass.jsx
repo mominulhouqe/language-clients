@@ -1,6 +1,10 @@
 import React from 'react';
+import useCart from '../../../hooks/useCart';
 
 const Myclass = () => {
+
+const {cart, refetch} = useCart()
+
     return (
         <div>
             My Total Class

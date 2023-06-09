@@ -9,9 +9,8 @@ import { log } from 'react-modal/lib/helpers/ariaAppHider';
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
 
-  const {cart, refetch} = useCart();
-console.log(cart.length);
-
+  const {cart } = useCart();
+  
   const handleLogOut =()=>{
     logOut()
     .then(()=>{})
