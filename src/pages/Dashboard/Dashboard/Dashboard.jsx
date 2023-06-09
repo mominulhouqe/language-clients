@@ -2,13 +2,14 @@ import React from 'react';
 import Myclass from '../MyClass/Myclass';
 import { NavLink, Outlet } from 'react-router-dom';
 import { FaBook, FaHome, FaCalendarAlt, FaUsers, FaFileInvoice, FaMoneyBill } from 'react-icons/fa';
-import useAdmin from '../../../hooks/useAdmin';
+// import useAdmin from '../../../hooks/useAdmin';
 
 const Dashboard = () => {
-    // const isAdmin = true;
-    // const isInstructor = false;
-    const [isAdmin] = useAdmin();
-    const [cart] = useCart();
+    const isAdmin = true;
+    const isInstructor = false;
+    // const [isAdmin] = useAdmin();
+
+
     return (
         <div className="drawer drawer-end lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />

@@ -40,7 +40,7 @@ const PopularInstructors = () => {
         >
           {popularInstructors.map((instructor) => (
             <motion.div
-              key={instructor.id}
+              key={instructor._id}
               className="flex p-6 shadow-2xl gap-2 flex-col items-center"
               variants={item}
             >
