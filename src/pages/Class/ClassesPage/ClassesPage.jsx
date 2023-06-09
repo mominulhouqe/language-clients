@@ -7,6 +7,7 @@ import AOS from "aos";
 import Cover from "../../Shared/Cover/Cover";
 import img from '../../../assets/img4.jpg'
 import Swal from "sweetalert2";
+import useCart from "../../../hooks/useCart";
 
 
 
@@ -17,6 +18,7 @@ const ClassesPage = ({ isAdmin }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const [menu] = useMenu()
+  const [refetch]  = useCart()
 
   useEffect(() => {
     AOS.init({
@@ -51,11 +53,13 @@ const ClassesPage = ({ isAdmin }) => {
         .then((res) => res.json())
         .then((data) => {
           if (data.insertedId) {
+        
             Swal.fire({
               icon: "success",
               title: "Success",
               text: "Added your class",
             });
+            refetch();
           } else {
             Swal.fire({
               icon: "error",

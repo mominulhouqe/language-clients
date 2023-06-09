@@ -20,7 +20,7 @@ const SocialLogin = () => {
         title: 'Login Successful',
         text: `Logged in as ${loggedUser.email}`,
       });
-      console.log(loggedUser);
+
 
       navigate(from); // Redirect to the specified "from" route
       
@@ -31,7 +31,6 @@ const SocialLogin = () => {
         title: 'Login Failed',
         text: error.message,
       });
-      console.log(error.message);
     });
 };
   return (
