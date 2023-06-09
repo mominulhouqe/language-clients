@@ -27,6 +27,7 @@ const LoginForm = () => {
           title: 'Login Successful',
           text: 'You have successfully logged in!',
         });
+        navigate(from); // Redirect to the specified "from" route
       })
       .catch(error => {
         Swal.fire({
@@ -97,7 +98,7 @@ const LoginForm = () => {
           <Link to="/register" className="text-blue-500 underline">Create an account</Link>
         </div>
         <div className="mt-4 mx-auto">
-          <SocialLogin></SocialLogin>
+          <SocialLogin />
         </div>
       </div>
     </div>

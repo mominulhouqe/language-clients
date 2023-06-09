@@ -8,8 +8,7 @@ import Cover from "../../Shared/Cover/Cover";
 import img from '../../../assets/img4.jpg'
 import Swal from "sweetalert2";
 
-import ClassesPagesData from "./ClassesPagesData";
-import useInstructor from "../../../hooks/useInstructor";
+
 
 const ClassesPage = ({ isAdmin }) => {
 
@@ -29,8 +28,6 @@ const ClassesPage = ({ isAdmin }) => {
 
 
   const handleSelectClass = (classItem) => {
-    console.log(classItem);
-
     if (user && user.email) {
       const selectedId = {
         menuItemId: classItem._id,
@@ -83,7 +80,7 @@ const ClassesPage = ({ isAdmin }) => {
       }).then((result) => {
         if (result.isConfirmed) {
 
-          navigate("/login", { state: { from: location } });
+          navigate("/login", { state: { from: location } } );
         }
       });
     }
@@ -97,11 +94,7 @@ const ClassesPage = ({ isAdmin }) => {
 
           <div className="grid mt-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {menu.map(classItem =>
-              // <ClassesPagesData
-              //   key={classItem._id}
-              //   classItem={classItem}
-              // ></ClassesPagesData>
-
+          
               <div
                 key={classItem._id}
                 className={`bg-white rounded-lg shadow-lg ${classItem.availableSeats === 0 ? "bg-red-100" : ""

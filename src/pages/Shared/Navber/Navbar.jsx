@@ -7,6 +7,16 @@ import Banner from '../../Home/Banner/Banner';
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
 
+
+  const handleLogOut =()=>{
+    logOut()
+    .then(()=>{})
+    .catch(error =>{
+      console.log(error.message);
+    })
+  }
+
+
   const menuItems = (
     <>
       <li>
@@ -19,7 +29,7 @@ const Navbar = () => {
         <Link to="/class">Classes</Link>
       </li>
       <li>
-        <Link to="/dashboard/myclass">Dashboard</Link>
+        <Link to="/dashboard/myclass">Dashboard </Link>
       </li>
       {user ? (
         <>
@@ -32,7 +42,7 @@ const Navbar = () => {
                 </span> */}
               </div>
             )}
-            <Link to="/login" onClick={logOut} className="ms-5 btn-sm btn">
+            <Link to="/login" onClick={handleLogOut} className="ms-5 btn-sm btn">
               <FaSignOutAlt></FaSignOutAlt> Logout
             </Link>
           </div>
