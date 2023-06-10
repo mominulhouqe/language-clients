@@ -5,8 +5,17 @@ import Swal from 'sweetalert2';
 
 const Myclass = () => {
     const { cart, refetch } = useCart();
-
     const total = cart.reduce((sum, item) => sum + item.price, 0);
+
+
+    
+
+
+
+
+
+
+
 
     const handleDelete = (classId) => {
         console.log(`Deleting class with id: ${classId}`);
@@ -89,12 +98,12 @@ const Myclass = () => {
                                 <td>{item.availableseats}</td>
                                 <td>{item.price}</td>
                                 <th>
-                                    <button className="btn btn-warning bg-white btn-sm " onClick={() => handleDelete(item._id)}>
+                                    <button className="btn btn-warning text-center bg-white btn-sm " onClick={() => handleDelete(item._id)}>
                                         <FaTrash className='text-xl text-red-500' /> Delete
                                     </button>
                                 </th>
                                 <th>
-                                    <button className="btn btn-active btn-secondary bg-white btn-sm" onClick={() => handlePay(item._id)}>
+                                    <button className="btn btn-active text-center btn-secondary bg-white btn-sm" onClick={() => handlePay(item._id)}>
                                         <FaMoneyBillAlt className='text-xl' /> Pay
                                     </button>
                                 </th>
@@ -104,7 +113,7 @@ const Myclass = () => {
                 </table>
             </div>
             <div className='flex justify-end'>
-                <button className='btn'>Total: {total.toFixed(2)}</button>
+                <button className='btn'>Total: $ {total.toFixed(2)}</button>
             </div>
 
         </div>
