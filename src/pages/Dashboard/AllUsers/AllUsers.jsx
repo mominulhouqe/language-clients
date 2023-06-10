@@ -35,7 +35,24 @@ const AllUsers = () => {
     }
 
 
-    const handleDelete = (user) => {
+    const handleMakeInstructor = (user) => {
+        console.log('click make ins');
+        fetch(`http://localhost:5000/users/instructor/${user._id}`,
+        {
+            method: 'PATCH',
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.modifiedCount) {
+                refetch();
+                Swal.fire({
+                    icon: 'success',
+                    title: `${user.name}is an instructor Now`,
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
+            }
+        })
 
     }
 
@@ -75,16 +92,21 @@ const AllUsers = () => {
                                         </button>
                                     )}
                                 </td>
-
-
                                 <td>
-                                    <button
-                                        onClick={() => handleDelete(user)} // Changed 'item' to 'row'
-                                        className="btn btn-ghost bg-red-600 text-white"
-                                    >
-                                        <FaTrashAlt />
-                                    </button> </td>
+                                    {user.role === 'instructor' ? (
+                                        'instructor'
+                                    ) : (
+                                        <button
+                                            onClick={() => handleMakeInstructor(user)}
+                                            className="btn btn-ghost bg-orange-500 text-white"
+                                        >
+                                            <FaUser />
+                                        </button>
+                                    )}
+                                </td>
 
+
+                            
                             </tr>
                         ))}
                     </tbody>

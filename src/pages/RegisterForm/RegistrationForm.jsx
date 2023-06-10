@@ -28,7 +28,7 @@ const RegistrationForm = () => {
 
         updatedUserProfiles(data.name, data.photoURL)
           .then(() => {
-            const saveUser = { name: data.name, email: data.email }
+            const saveUser = { name: data.name, email: data.email ,role:'student'}
             fetch('http://localhost:5000/users', {
               method: 'POST',
               headers: {
@@ -47,7 +47,7 @@ const RegistrationForm = () => {
                     showConfirmButton: false,
                     timer: 1500
                   });
-                  navigate('/login');
+                  navigate('/');
                 }
               })
 
