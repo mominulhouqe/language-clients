@@ -20,7 +20,7 @@ const ClassesPage = ({ isAdmin }) => {
   const [menu] = useMenu()
   const {refetch} = useCart();
 
-
+console.log(menu);
   useEffect(() => {
     AOS.init({
       duration: 800,
@@ -139,3 +139,53 @@ const ClassesPage = ({ isAdmin }) => {
 };
 
 export default ClassesPage;
+
+
+/* 
+
+[
+  {
+    "image": "https://i.ibb.co/5KDYGpj/my-img8.png",
+    "name": "Spanish for Beginners",
+    "instructor": "Maria Rodriguez",
+    "availableseats": 20,
+    "price": 49.99
+  },
+  {
+    "image": "ihttps://i.ibb.co/QQgXYTq/my-img7-1.jpg",
+    "name": "French Conversation",
+    "instructor": "Jean-Claude Leblanc",
+    "availableseats": 15,
+    "price": 59.99
+  },
+  {
+    "image": "https://i.ibb.co/kBPyrJG/my-img6-1.jpg",
+    "name": "German Grammar Mastery",
+    "instructor": "Hans Müller",
+    "availableseats": 10,
+    "price": 69.99
+  },
+  {
+    "image": "https://i.ibb.co/kxQn7NG/my-img3.jpg",
+    "name": "Italian Pronunciation Workshop",
+    "instructor": "Giulia Rossi",
+    "availableseats": 12,
+    "price": 39.99
+  },
+  {
+    "image": "https://i.ibb.co/G3KrV0n/my-img2-1.jpg",
+    "name": "Chinese Characters Simplified",
+    "instructor": "Li Wei",
+    "availableseats": 8,
+    "price": 79.99
+  },
+  {
+    "image": "https://i.ibb.co/Gtm20kg/my-img1-1.jpg",
+    "name": "Japanese Kanji Mastery",
+    "instructor": "Takeshi Nakamura",
+    "availableseats": 18,
+    "price": 89.99
+  }
+]
+
+*/
