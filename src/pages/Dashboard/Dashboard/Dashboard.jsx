@@ -6,10 +6,7 @@ import useAdmin from '../../../hooks/useAdmin';
 
 const Dashboard = () => {
   const { user } = useAuth();
-  // const isAdmin = useAdmin();
-  const isAdmin = user?.role === 'admin';
-  const isStudent = user?.role === 'student';
-  const isInstructor = user?.role === 'instructor';
+  const [isAdminOrInstructor] = useAdmin();
 
   return (
     <div className="drawer w-full lg:drawer-open">
@@ -25,7 +22,7 @@ const Dashboard = () => {
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 h-full bg-sky-900 text-white">
           {/* Sidebar content here */}
-          {isAdmin && (
+          {isAdminOrInstructor === 'admin' ? (
             <>
               <li>
                 <NavLink to="/dashboard/adminhome">
@@ -46,20 +43,16 @@ const Dashboard = () => {
                 </NavLink>
               </li>
             </>
-          )}
-
-          {isInstructor && (
-            <>
-              <li>
-                <NavLink to="/dashboard/instructorPage">
-                  <FaBook className="mr-2" />
-                  Instructor Page
-                </NavLink>
-              </li>
-            </>
-          )}
-
-          {isStudent && (
+          ) : null}
+          {isAdminOrInstructor === 'instructor' ? (
+            <li>
+              <NavLink to="/dashboard/instructorPage">
+                <FaBook className="mr-2" />
+                Instructor Page
+              </NavLink>
+            </li>
+          ) : null}
+          {isAdminOrInstructor !== 'admin' && isAdminOrInstructor !== 'instructor' ? (
             <>
               <li>
                 <NavLink to="/dashboard/studentPage">
@@ -67,8 +60,9 @@ const Dashboard = () => {
                   Student Page
                 </NavLink>
               </li>
+              {/* Add additional links for other roles as needed */}
             </>
-          )}
+          ) : null}
         </ul>
       </div>
     </div>

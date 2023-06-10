@@ -59,9 +59,6 @@ const AllUsers = () => {
 
     return (
         <div>
-
-
-
             <div className="overflow-x-auto my-4">
                 <table className="table">
                     <thead>

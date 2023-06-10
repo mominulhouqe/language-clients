@@ -5,6 +5,7 @@ import { FaSignOutAlt } from 'react-icons/fa';
 import Banner from '../../Home/Banner/Banner';
 import useCart from '../../../hooks/useCart';
 import { log } from 'react-modal/lib/helpers/ariaAppHider';
+import useAdmin from '../../../hooks/useAdmin';
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -32,7 +33,9 @@ const Navbar = () => {
         <Link to="/class">Classes {cart?.length || 0}</Link>
       </li>
       <li>
-        <Link to="/dashboard/myclass">Dashboard </Link>
+        <Link to="/dashboard/usersHome">Dashboard </Link>
+
+
       </li>
       {user ? (
         <>

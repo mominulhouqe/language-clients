@@ -10,6 +10,8 @@ import ClassesPage from "../pages/Class/ClassesPage/ClassesPage";
 import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
 import Myclass from "../pages/Dashboard/MyClass/Myclass";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
+import AdminDashboard from "../pages/Dashboard/Admin/AdminDashboard";
+import UserHome from "../pages/Dashboard/UserHome/UserHome";
 
 export const router = createBrowserRouter([
     {
@@ -52,8 +54,17 @@ export const router = createBrowserRouter([
         element: <Dashboard />,
         children:[
             {
+                path:'usersHome',
+                element:<UserHome></UserHome>
+                
+            },
+            {
                 path:'myclass',
                 element:<Myclass></Myclass>
+            },
+            {
+                path:'adminhome',
+                element:<AdminDashboard></AdminDashboard>
             },
             {
                 path:'manageUsers',
@@ -61,4 +72,7 @@ export const router = createBrowserRouter([
             }
         ]
     },
+
+
+
 ])
