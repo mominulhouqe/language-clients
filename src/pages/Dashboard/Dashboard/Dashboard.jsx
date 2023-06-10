@@ -112,7 +112,7 @@ import useAdmin from '../../../hooks/useAdmin';
 
 const Dashboard = () => {
   const { user } = useAuth();
-  //   const isAdmin = user?.role === 'admin';
+    // const isAdmin = user?.role === 'admin';
   //   const isInstructor = user?.role === 'instructor';
   // const isAdmin = true
   // const isInstructor = false
