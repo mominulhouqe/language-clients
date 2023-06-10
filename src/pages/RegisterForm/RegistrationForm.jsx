@@ -10,6 +10,7 @@ const RegistrationForm = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -46,7 +47,7 @@ const RegistrationForm = () => {
                     showConfirmButton: false,
                     timer: 1500
                   });
-                  navigate('/');
+                  navigate('/login');
                 }
               })
 
@@ -68,9 +69,9 @@ const RegistrationForm = () => {
   };
 
   return (
-    <div className="my-12 rounded-xl shadow-2xl p-6 max-w-sm mx-auto">
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <h1 className="font-bold text-2xl my-6">Please Register Here !!!</h1>
+    <div className="rounded-xl mb-6 shadow-xl p-6 max-w-sm mx-auto">
+      <form className='mt-24' onSubmit={handleSubmit(onSubmit)}>
+        <h1 className="font-bold text-2xl">Please Register Here !!!</h1>
         <div className="mb-4">
           <label htmlFor="name" className="block mb-2 font-medium">
             Name
