@@ -37,7 +37,7 @@ const ClassesPage = ({ isAdmin }) => {
         image: classItem.image,
         title:classItem.title,
         students:classItem.students,
-        availableSeats:classItem.availableSeats,
+        availableseats:classItem.availableseats,
         price:classItem.price,
         email: user.email
       };

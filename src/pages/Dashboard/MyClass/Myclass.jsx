@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 
 const Myclass = () => {
     const { cart, refetch } = useCart();
-    
+
     const total = cart.reduce((sum, item) => sum + item.price, 0);
 
     const handleDelete = (classId) => {
@@ -18,29 +18,29 @@ const Myclass = () => {
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
-          }).then((result) => {
-            
+        }).then((result) => {
+
             if (result.isConfirmed) {
 
                 fetch(`http://localhost:5000/carts/${classId}`,
-                {
-                    method:'DELETE'
-                })
-                .then(res =>res.json())
-                .then(data => {
-                    if(data.deletedCount > 0){
-                        refetch();
+                    {
+                        method: 'DELETE'
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            refetch();
 
-                        Swal.fire(
-                          'Deleted!',
-                          'Your file has been deleted.',
-                          'success'
-                        )
-                    }
-                })
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
 
             }
-          })
+        })
 
     };
 
@@ -86,16 +86,16 @@ const Myclass = () => {
                                     </div>
                                 </td>
                                 <td className=''>{item.name}</td>
-                                <td>{item.availableSeats}</td>
+                                <td>{item.availableseats}</td>
                                 <td>{item.price}</td>
                                 <th>
-                                    <button className="btn btn-warning" onClick={() => handleDelete(item._id)}>
-                                        <FaTrash /> Delete
+                                    <button className="btn btn-warning bg-white btn-sm " onClick={() => handleDelete(item._id)}>
+                                        <FaTrash className='text-xl text-red-500' /> Delete
                                     </button>
                                 </th>
                                 <th>
-                                    <button className="btn btn-active btn-secondary" onClick={() => handlePay(item._id)}>
-                                        <FaMoneyBillAlt /> Pay
+                                    <button className="btn btn-active btn-secondary bg-white btn-sm" onClick={() => handlePay(item._id)}>
+                                        <FaMoneyBillAlt className='text-xl' /> Pay
                                     </button>
                                 </th>
                             </tr>
@@ -104,8 +104,9 @@ const Myclass = () => {
                 </table>
             </div>
             <div className='flex justify-end'>
-                <button className='btn btn-ghost'>Total: {total}</button>
+                <button className='btn'>Total: {total.toFixed(2)}</button>
             </div>
+
         </div>
     );
 };
