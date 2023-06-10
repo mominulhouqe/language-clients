@@ -27,6 +27,6 @@ const useAdmin = () => {
     const isAdminOrInstructor = isAdmin ? 'admin' : isInstructor ? 'instructor' : 'student';
     const isLoading = isAdminLoading || isInstructorLoading;
 
-    return [isAdminOrInstructor, isLoading]
+    return [isAdminOrInstructor, isLoading , isAdmin]
 }
 export default useAdmin;

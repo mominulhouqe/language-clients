@@ -25,7 +25,7 @@ const Dashboard = () => {
           {isAdminOrInstructor === 'admin' ? (
             <>
               <li>
-                <NavLink to="/dashboard/adminhome">
+                <NavLink to="/">
                   <FaHome className="mr-2" />
                   Admin Home
                 </NavLink>
