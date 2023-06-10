@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaTrashAlt, FaUser } from 'react-icons/fa';
 import { useQuery } from 'react-query';
+import Swal from 'sweetalert2';
 
 const AllUsers = () => {
 
@@ -13,22 +14,22 @@ const AllUsers = () => {
 
     
     const handleMakeAdmin = user => {
-        // fetch(`https://bristo-boss-server-mominulhouqe.vercel.app/users/admin/${user._id}`,
-        //     {
-        //         method: 'PATCH',
-        //     })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         if (data.modifiedCount) {
-        //             refetch();
-        //             Swal.fire({
-        //                 icon: 'success',
-        //                 title: `${user.name}is an Admin Now`,
-        //                 showConfirmButton: false,
-        //                 timer: 1500,
-        //             });
-        //         }
-        //     })
+        fetch(`http://localhost:5000/users/admin/${user._id}`,
+            {
+                method: 'PATCH',
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount) {
+                    refetch();
+                    Swal.fire({
+                        icon: 'success',
+                        title: `${user.name}is an Admin Now`,
+                        showConfirmButton: false,
+                        timer: 1500,
+                    });
+                }
+            })
     }
 
 
