@@ -2,17 +2,19 @@ import React from 'react';
 import { FaTrashAlt, FaUser } from 'react-icons/fa';
 import { useQuery } from 'react-query';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 const AllUsers = () => {
+    const [axiosSecure] = useAxiosSecure();
 
-    const {data: users = [],  refetch} = useQuery('users', async()=>{
-        const res = await fetch('http://localhost:5000/users');
-        return res.json();
+    const { data: users = [], refetch } = useQuery('users', async () => {
+        const res = await axiosSecure('/users');
+        return res.data;
     });
 
 
 
-    
+
     const handleMakeAdmin = user => {
         fetch(`http://localhost:5000/users/admin/${user._id}`,
             {
@@ -40,7 +42,7 @@ const AllUsers = () => {
 
     return (
         <div>
-            
+
 
 
             <div className="overflow-x-auto my-4">

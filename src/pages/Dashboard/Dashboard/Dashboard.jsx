@@ -106,14 +106,17 @@ import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { FaBook, FaHome, FaUsers, FaMoneyBill } from 'react-icons/fa';
 import useAuth from '../../../hooks/useAuth';
+import useAdmin from '../../../hooks/useAdmin';
+
 
 
 const Dashboard = () => {
   const { user } = useAuth();
   //   const isAdmin = user?.role === 'admin';
   //   const isInstructor = user?.role === 'instructor';
-  const isAdmin = true
-  const isInstructor = false
+  // const isAdmin = true
+  // const isInstructor = false
+  const isAdmin = useAdmin()
 
   return (
     <div className="drawer w-full lg:drawer-open">
