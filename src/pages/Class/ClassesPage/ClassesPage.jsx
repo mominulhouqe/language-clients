@@ -43,7 +43,7 @@ const ClassesPage = ({ isAdmin }) => {
         price:classItem.price,
         email: user.email
       };
-      console.log(selectedId);
+   
 
       fetch("http://localhost:5000/carts", {
         method: "POST",
@@ -113,8 +113,8 @@ const ClassesPage = ({ isAdmin }) => {
                   className="w-full h-80 rounded-t-lg"
                 />
                 <div className="p-4">
-                  <h3 className="text-lg font-semibold mb-2">{classItem.name}</h3>
-                  <p className="text-gray-600 mb-2">Instructor: {classItem.instructor}</p>
+                  <h3 className="text-lg font-semibold mb-2">{classItem.title}</h3>
+                  <p className="text-gray-600 mb-2">Instructor: {classItem.name}</p>
                   <p className="text-gray-600 mb-2">Available Seats: {classItem.availableSeats}</p>
                   <p className="text-gray-600 mb-4">Price: ${classItem.price}</p>
                   <button
