@@ -103,9 +103,9 @@ const Myclass = () => {
                                     </button>
                                 </th>
                                 <th>
-                                    <Link className='/payment'>
+                                    <Link className={`/payment/:${item._id}`}>
 
-                                        <button className="btn btn-active text-center btn-secondary bg-white btn-sm" onClick={() => handlePay(item._id)}>
+                                        <button className="btn btn-active text-center btn-secondary bg-white btn-sm" >
                                             <FaMoneyBillAlt className='text-xl' /> Pay
                                         </button>
                                     </Link>
