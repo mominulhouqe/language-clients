@@ -8,15 +8,6 @@ const Myclass = () => {
     const { cart, refetch } = useCart();
     const total = cart.reduce((sum, item) => sum + item.price, 0);
 
-
-
-
-
-
-
-
-
-
     const handleDelete = (classId) => {
         console.log(`Deleting class with id: ${classId}`);
         Swal.fire({
@@ -28,34 +19,32 @@ const Myclass = () => {
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
-
             if (result.isConfirmed) {
-
-                fetch(`http://localhost:5000/carts/${classId}`,
-                    {
-                        method: 'DELETE'
-                    })
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data.deletedCount > 0) {
-                            refetch();
-
-                            Swal.fire(
-                                'Deleted!',
-                                'Your file has been deleted.',
-                                'success'
-                            )
-                        }
-                    })
-
+                fetch(`http://localhost:5000/carts/${classId}`, {
+                    method: 'DELETE'
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        refetch();
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
+                    }
+                })
             }
         })
-
     };
 
-    // const handlePay = (classId) => {
-    //     console.log(`Paying for class with id: ${classId}`);
-    // };
+    const handlePay = (classId) => {
+        const selectedItem = cart.find(item => item._id === classId);
+        if (selectedItem) {
+            localStorage.setItem('selectedItem', JSON.stringify(selectedItem));
+            console.log(`Paid for class with id: ${classId}`);
+        }
+    };
 
     return (
         <div className='border rounded-lg shadow-2xl p-4'>
@@ -103,26 +92,20 @@ const Myclass = () => {
                                     </button>
                                 </th>
                                 <th>
-                                    <Link className={`/dashboard/payment/:${item._id}`}>
-
-                                        <button className="btn btn-active text-center btn-secondary bg-white btn-sm" >
-                                            <FaMoneyBillAlt className='text-xl' /> Pay
-                                        </button>
+                                    <Link to='/dashboard/myClass/payment'>
+                                    <button className="btn btn-active text-center btn-secondary bg-white btn-sm" onClick={() => handlePay(item._id)}>
+                                        <FaMoneyBillAlt className='text-xl' /> Pay
+                                    </button>
                                     </Link>
-
                                 </th>
                             </tr>
                         ))}
                     </tbody>
-
                 </table>
             </div>
             <div className='flex justify-end'>
-                <Link to='/dashboard/myclass/payment'>
-                    <button className='btn'>Total: $ {total.toFixed(2)}</button>
-                    </Link>
+                <button className='btn'>Total: $ {total.toFixed(2)}</button>
             </div>
-
         </div>
     );
 };

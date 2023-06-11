@@ -1,23 +1,32 @@
 import { loadStripe } from "@stripe/stripe-js";
-
 import { Elements } from '@stripe/react-stripe-js';
-
-
 import CheckoutForm from "./CheckoutForm";
 import useCart from "../../../hooks/useCart";
+import { useEffect, useState } from "react";
 
-// TODO: provide publishable Key
 const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
+
 const Payments = () => {
-    const [cart] = useCart();
+    const { cart } = useCart();
     const total = cart.reduce((sum, item) => sum + item.price, 0);
-    const price = parseFloat(total.toFixed(2))
+    // const price = parseFloat(total.toFixed(2));
+
+    const [storedPrice, setStoredPrice] = useState(null);
+
+    useEffect(() => {
+        const storedItem = localStorage.getItem('selectedItem');
+        if (storedItem) {
+            const parsedItem = JSON.parse(storedItem);
+            setStoredPrice(parsedItem.price);
+        }
+    }, []);
+
     return (
         <div>
-           
-            <h2 className="text-3xl"> Teka o teka tumi uira uira aso...</h2>
+            <h2 className="text-3xl">Teka o teka tumi uira uira aso...</h2>
+            <h3>Price from localStorage: $ {storedPrice}</h3>
             <Elements stripe={stripePromise}>
-                <CheckoutForm cart={cart} price={price}></CheckoutForm>
+                <CheckoutForm price={storedPrice}></CheckoutForm>
             </Elements>
         </div>
     );
