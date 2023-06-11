@@ -14,11 +14,13 @@ import AdminDashboard from "../pages/Dashboard/Admin/AdminDashboard";
 import UserHome from "../pages/Dashboard/UserHome/UserHome";
 import AdminRoute from "./AdminRoute";
 import ManageClasses from "../pages/Dashboard/Admin/ManageClasses";
-import Payment from "../pages/Dashboard/MyClass/Payment";
+
 import Enrollied from "../pages/Dashboard/MyClass/Enrollied";
 import AddAClass from "../pages/Dashboard/Instructors/AddAClass";
 import InstructorsClass from "../pages/Dashboard/Instructors/InstructorsClass";
-import Payments from "../pages/Dashboard/MyClass/Payments";
+import Payments from "../pages/Dashboard/PaymentCheckout/Payments";
+import PaymentHistory from "../pages/Dashboard/MyClass/PaymentHistory";
+
 
 export const router = createBrowserRouter([
     {
@@ -74,15 +76,15 @@ export const router = createBrowserRouter([
                 element:<AdminRoute><AdminDashboard></AdminDashboard></AdminRoute>
             },
             {
-                path:'payment',
-                element:<Payment></Payment>
+                path:'paymentHistory',
+                element:<PaymentHistory></PaymentHistory>
             },
             {
                 path:'enrollied',
                 element:<Enrollied></Enrollied>
             },
             {
-                path:'payment',
+                path:'myclass/payment',
                 element:<Payments></Payments>
             }
             ,

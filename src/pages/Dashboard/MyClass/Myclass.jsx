@@ -103,7 +103,7 @@ const Myclass = () => {
                                     </button>
                                 </th>
                                 <th>
-                                    <Link className={`/payment/:${item._id}`}>
+                                    <Link className={`/dashboard/payment/:${item._id}`}>
 
                                         <button className="btn btn-active text-center btn-secondary bg-white btn-sm" >
                                             <FaMoneyBillAlt className='text-xl' /> Pay
@@ -118,7 +118,9 @@ const Myclass = () => {
                 </table>
             </div>
             <div className='flex justify-end'>
-                <button className='btn'>Total: $ {total.toFixed(2)}</button>
+                <Link to='/dashboard/myclass/payment'>
+                    <button className='btn'>Total: $ {total.toFixed(2)}</button>
+                    </Link>
             </div>
 
         </div>

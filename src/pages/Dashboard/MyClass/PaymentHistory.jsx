@@ -3,7 +3,7 @@ import { useQueryClient } from 'react-query';
 // import { useHistory } from 'react-router-dom';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
-const Payment = () => {
+const PaymentHistory = () => {
 //   const history = useHistory();
   const queryClient = useQueryClient();
   const [axiosSecure] = useAxiosSecure();
@@ -56,4 +56,4 @@ const Payment = () => {
   );
 };
 
-export default Payment;
+export default PaymentHistory;
