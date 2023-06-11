@@ -9,9 +9,8 @@ const PopularClasses = () => {
   const [menu] = useMenu();
   // const [instructors, loading] = useInstructor
 
-
   const popularClasses = menu
-    .sort((a, b) => b.students - a.students)
+    .sort((a, b) => b.availableseats - a.availableseats)
     .slice(0, 6);
 
   // Initialize AOS inside the component
@@ -30,10 +29,10 @@ const PopularClasses = () => {
               className="bg-white p-4 rounded-lg shadow-xl"
               data-aos="fade-up" // Add AOS animation attribute
             >
-              <img src={classItem.image} alt={classItem.title} className="w-full h-80 object-cover mb-4" />
-              <h3 className="text-xl font-bold">{classItem.title}</h3>
+              <img src={classItem.image} alt={classItem.name} className="w-full h-80 object-cover mb-4" />
+              <h3 className="text-xl font-bold">{classItem.name}</h3>
               <div className="flex items-center justify-between">
-                <p className="text-gray-600">Students: {classItem.students}</p>
+                <p className="text-gray-600">Students: {classItem.availableseats}</p>
                 <button className="btn">
                   <FaVideo></FaVideo> Watch video
                 </button>
