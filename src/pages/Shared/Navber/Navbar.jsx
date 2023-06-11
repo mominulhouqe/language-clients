@@ -4,8 +4,7 @@ import { AuthContext } from '../../../provider/AuthProvider';
 import { FaSignOutAlt } from 'react-icons/fa';
 import Banner from '../../Home/Banner/Banner';
 import useCart from '../../../hooks/useCart';
-import { log } from 'react-modal/lib/helpers/ariaAppHider';
-import useAdmin from '../../../hooks/useAdmin';
+
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -19,7 +18,6 @@ const Navbar = () => {
       console.log(error.message);
     })
   }
-
 
   const menuItems = (
     <>

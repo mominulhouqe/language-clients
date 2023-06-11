@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Fade, Slide } from 'react-awesome-reveal';
 import { AiOutlinePlayCircle } from 'react-icons/ai';
+import useAuth from '../../../hooks/useAuth';
+import { AuthContext } from '../../../provider/AuthProvider';
+
 
 const UserHome = () => {
+  const { user, loading } = useContext(AuthContext)
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-full">
+
+        <span className="loading loading-bars loading-xs"></span>
+        <span className="loading loading-bars loading-sm"></span>
+        <span className="loading loading-bars loading-md"></span>
+        <span className="loading loading-bars loading-lg"></span>
+      </div>
+    );
+  }
   return (
     <div className="w-full h-screen flex items-center justify-center bg-gradient-to-r from-green-400 to-blue-500">
       <div className="w-1/2 mx-auto text-center text-white">

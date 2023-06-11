@@ -39,8 +39,8 @@ const InstructorsClass = () => {
           className="w-96  rounded-2xl mr-4 mb-4 md:mb-0"
         />
         <div className='mx-6' >
-          <h3 className="text-xl font-bold mb-2">{item.instructor}</h3>
-          <p className="text-gray-600 mb-2">Name: {item.name}</p>
+          <h3 className="text-xl font-bold mb-2">{item.name}</h3>
+          <p className="text-gray-600 mb-2">Name: {item.instructor}</p>
           <p className="text-gray-600">Available Seats: {item.availableseats}</p>
           <p className="text-gray-600">Price: ${item.price}</p>
           <p className="text-gray-600">

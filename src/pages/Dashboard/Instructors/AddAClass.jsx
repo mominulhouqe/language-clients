@@ -24,7 +24,6 @@ const AddAClass = () => {
   }
 
   const onSubmit = (data) => {
-    console.log(data);
 
     const formData = new FormData();
     formData.append('image', data.image[0]);
@@ -47,7 +46,7 @@ const AddAClass = () => {
             email: user.email,
             instructor: user.displayName
           };
-          console.log(newItem);
+        
 
           axiosSecure.post('/classes', newItem)
             .then((data) => {
