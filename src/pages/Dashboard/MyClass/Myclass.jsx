@@ -2,12 +2,13 @@ import React, { useEffect } from 'react';
 import { FaTrash, FaMoneyBillAlt } from 'react-icons/fa';
 import useCart from '../../../hooks/useCart';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const Myclass = () => {
     const { cart, refetch } = useCart();
     const total = cart.reduce((sum, item) => sum + item.price, 0);
 
-    
+
 
 
 
@@ -52,9 +53,9 @@ const Myclass = () => {
 
     };
 
-    const handlePay = (classId) => {
-        console.log(`Paying for class with id: ${classId}`);
-    };
+    // const handlePay = (classId) => {
+    //     console.log(`Paying for class with id: ${classId}`);
+    // };
 
     return (
         <div className='border rounded-lg shadow-2xl p-4'>
@@ -102,13 +103,18 @@ const Myclass = () => {
                                     </button>
                                 </th>
                                 <th>
-                                    <button className="btn btn-active text-center btn-secondary bg-white btn-sm" onClick={() => handlePay(item._id)}>
-                                        <FaMoneyBillAlt className='text-xl' /> Pay
-                                    </button>
+                                    <Link className='/payment'>
+
+                                        <button className="btn btn-active text-center btn-secondary bg-white btn-sm" onClick={() => handlePay(item._id)}>
+                                            <FaMoneyBillAlt className='text-xl' /> Pay
+                                        </button>
+                                    </Link>
+
                                 </th>
                             </tr>
                         ))}
                     </tbody>
+
                 </table>
             </div>
             <div className='flex justify-end'>

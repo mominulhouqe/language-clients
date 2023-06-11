@@ -18,6 +18,7 @@ import Payment from "../pages/Dashboard/MyClass/Payment";
 import Enrollied from "../pages/Dashboard/MyClass/Enrollied";
 import AddAClass from "../pages/Dashboard/Instructors/AddAClass";
 import InstructorsClass from "../pages/Dashboard/Instructors/InstructorsClass";
+import Payments from "../pages/Dashboard/MyClass/Payments";
 
 export const router = createBrowserRouter([
     {
@@ -73,15 +74,19 @@ export const router = createBrowserRouter([
                 element:<AdminRoute><AdminDashboard></AdminDashboard></AdminRoute>
             },
             {
-                path:'payments',
+                path:'payment',
                 element:<Payment></Payment>
-            }
-            ,
+            },
             {
                 path:'enrollied',
                 element:<Enrollied></Enrollied>
+            },
+            {
+                path:'payment',
+                element:<Payments></Payments>
             }
             ,
+            
             {
                 path:'manageUsers',
                 element:<AllUsers></AllUsers>
