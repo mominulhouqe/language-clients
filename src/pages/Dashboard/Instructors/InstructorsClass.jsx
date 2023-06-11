@@ -3,13 +3,26 @@ import useMenu from '../../../hooks/useMenu';
 import useAuth from '../../../hooks/useAuth';
 import { AuthContext } from '../../../provider/AuthProvider';
 
+
 const InstructorsClass = () => {
-  
-  const { user } = useContext(AuthContext);
+
+  const { user, loading } = useContext(AuthContext);
   const [menu] = useMenu();
 
   const renderUserItems = () => {
     const filteredItems = menu.filter((item) => item.email === user?.email);
+
+    if (loading) {
+      return (
+        <div className="flex items-center justify-center h-full">
+
+          <span className="loading loading-bars loading-xs"></span>
+          <span className="loading loading-bars loading-sm"></span>
+          <span className="loading loading-bars loading-md"></span>
+          <span className="loading loading-bars loading-lg"></span>
+        </div>
+      );
+    }
 
     if (filteredItems.length === 0) {
       return <p className="text-gray-600 text-lg">No Class items found.</p>;
