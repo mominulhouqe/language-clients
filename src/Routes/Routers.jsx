@@ -67,14 +67,12 @@ export const router = createBrowserRouter([
                 element:<UserHome></UserHome>
                 
             },
+            // normarl user route
             {
                 path:'myclass',
                 element:<Myclass></Myclass>
             },
-            {
-                path:'adminhome',
-                element:<AdminRoute><AdminDashboard></AdminDashboard></AdminRoute>
-            },
+         
             {
                 path:'paymentHistory',
                 element:<PaymentHistory></PaymentHistory>
@@ -88,7 +86,11 @@ export const router = createBrowserRouter([
                 element:<Payments></Payments>
             }
             ,
-            
+            // admin route
+            {
+                path:'adminhome',
+                element:<AdminRoute><AdminDashboard></AdminDashboard></AdminRoute>
+            },
             {
                 path:'manageUsers',
                 element:<AllUsers></AllUsers>
@@ -98,6 +100,7 @@ export const router = createBrowserRouter([
                 path:'manageClasses',
                 element:<ManageClasses></ManageClasses>
             },
+            // instructor route
             {
                 path:'addAClass',
                 element:<AddAClass></AddAClass>
@@ -105,7 +108,8 @@ export const router = createBrowserRouter([
             {
                 path:'instructorClass',
                 element:<InstructorsClass></InstructorsClass>
-            }
+            },
+            
         ]
     },
 
