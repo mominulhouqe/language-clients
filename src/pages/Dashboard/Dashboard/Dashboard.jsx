@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import { FaBook, FaHome, FaUsers, FaMoneyBill } from 'react-icons/fa';
+import { FaBook, FaHome, FaUsers, FaMoneyBill, FaSchool } from 'react-icons/fa';
 import useAuth from '../../../hooks/useAuth';
 import useAdmin from '../../../hooks/useAdmin';
 
@@ -55,9 +55,21 @@ const Dashboard = () => {
           {isAdminOrInstructor !== 'admin' && isAdminOrInstructor !== 'instructor' ? (
             <>
               <li>
-                <NavLink to="/dashboard/studentPage">
+                <NavLink to="/">
+                  <FaHome className="mr-2" />
+                 Home 
+                </NavLink>
+                <NavLink to="/dashboard/myclass">
+                  <FaSchool className="mr-2" />
+                  My Selected Class
+                </NavLink>
+                <NavLink to="/dashboard/enrollied">
                   <FaBook className="mr-2" />
-                  Student Page
+                  My Enrolled Class
+                </NavLink>
+                <NavLink to="/dashboard/payments">
+                  <FaMoneyBill className="mr-2" />
+                 Payment
                 </NavLink>
               </li>
               {/* Add additional links for other roles as needed */}
