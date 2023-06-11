@@ -7,7 +7,6 @@ const Myclass = () => {
     const { cart, refetch } = useCart();
     const total = cart.reduce((sum, item) => sum + item.price, 0);
 
-
     
 
 

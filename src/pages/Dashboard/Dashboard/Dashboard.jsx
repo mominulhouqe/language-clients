@@ -5,8 +5,19 @@ import useAuth from '../../../hooks/useAuth';
 import useAdmin from '../../../hooks/useAdmin';
 
 const Dashboard = () => {
-  const { user } = useAuth();
+  const { user , loading} = useAuth();
   const [isAdminOrInstructor] = useAdmin();
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-full">
+
+        <span className="loading loading-bars loading-xs"></span>
+        <span className="loading loading-bars loading-sm"></span>
+        <span className="loading loading-bars loading-md"></span>
+        <span className="loading loading-bars loading-lg"></span>
+      </div>
+    );
+  }
 
   return (
     <div className="drawer w-full lg:drawer-open">

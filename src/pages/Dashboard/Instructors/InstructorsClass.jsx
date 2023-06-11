@@ -30,7 +30,7 @@ const InstructorsClass = () => {
 
     return filteredItems.map((item) => (
       <div
-        key={item.id}
+        key={item._id}
         className="bg-white w-full mx-6 shadow-md rounded-lg p-6 mb-6 flex flex-col md:flex-row items-center"
       >
         <img

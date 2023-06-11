@@ -13,7 +13,7 @@ import useCart from "../../../hooks/useCart";
 
 const ClassesPage = ({ isAdmin }) => {
   
-  const { user } = useContext(AuthContext);
+  const { user , loading} = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const [menu] = useMenu()
@@ -26,7 +26,17 @@ const ClassesPage = ({ isAdmin }) => {
     });
   }, []);
 
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-full">
 
+        <span className="loading loading-bars loading-xs"></span>
+        <span className="loading loading-bars loading-sm"></span>
+        <span className="loading loading-bars loading-md"></span>
+        <span className="loading loading-bars loading-lg"></span>
+      </div>
+    );
+  }
   const handleSelectClass = (classItem) => {
     if (user && user.email) {
       const selectedId = {
