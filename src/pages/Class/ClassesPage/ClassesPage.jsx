@@ -18,7 +18,6 @@ const ClassesPage = ({ isAdmin }) => {
   const location = useLocation();
   const [menu] = useMenu()
   const {refetch} = useCart();
-
   useEffect(() => {
     AOS.init({
       duration: 800,
