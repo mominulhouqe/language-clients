@@ -46,10 +46,19 @@ const Dashboard = () => {
           ) : null}
           {isAdminOrInstructor === 'instructor' ? (
             <li>
-              <NavLink to="/dashboard/instructorPage">
+              <NavLink to="/">
                 <FaBook className="mr-2" />
-                Instructor Page
+             Home
               </NavLink>
+              <NavLink to="/dashboard/addAclass">
+                <FaBook className="mr-2" />
+                Add A Class
+              </NavLink>
+              <NavLink to="/dashboard/instructorClass">
+                <FaBook className="mr-2" />
+                My Classes
+              </NavLink>
+              
             </li>
           ) : null}
           {isAdminOrInstructor !== 'admin' && isAdminOrInstructor !== 'instructor' ? (
@@ -72,7 +81,7 @@ const Dashboard = () => {
                  Payment
                 </NavLink>
               </li>
-              {/* Add additional links for other roles as needed */}
+            
             </>
           ) : null}
         </ul>
