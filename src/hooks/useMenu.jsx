@@ -5,7 +5,7 @@ const useMenu = () => {
 
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        fetch('http://localhost:5000/classes')
+        fetch('https://server-pi-liart.vercel.app/classes')
             .then(res => res.json())
             .then(data => {
                 setMenu(data)

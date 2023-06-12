@@ -13,7 +13,8 @@ const LoginForm = () => {
   const { signIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || '/';
+  const from = location.state?.from?.pathname || "/";
+
 
   const onSubmit = (data) => {
     // Handle login logic here
@@ -26,7 +27,7 @@ const LoginForm = () => {
           title: 'Login Successful',
           text: 'You have successfully logged in!',
         });
-        navigate(from); // Redirect to the specified "from" route
+        navigate(from, { replace: true });
       })
       .catch(error => {
         Swal.fire({
