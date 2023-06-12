@@ -1,6 +1,6 @@
-# School Website
+# Language learning
 
-![School Website Logo](logo.png)
+![Language Learning Website Logo](logo.png)
 
 ## Features
 
@@ -19,17 +19,17 @@
 
 ## Live Site
 
-Check out the live site [here](https://www.schoolwebsite.com).
+Check out the live site [here](https://language-club-a06e8.web.app/).
 
 ## Installation and Usage
 
 To run the project locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/your-username/school-website.git`
-2. Navigate to the project directory: `cd school-website`
+1. Clone the repository: `https://github.com/programming-hero-web-course1/b712-summer-camp-client-side-mominulhouqe`
+2. Navigate to the project directory: `cd learning-language`
 3. Install the dependencies: `npm install`
 4. Start the development server: `npm start`
-5. Open your browser and visit `http://localhost:3000` to view the website.
+5. Open your browser and visit `http://localhost:5000` to view the website.
 
 ## License
 
@@ -37,4 +37,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-Thank you for checking out our School Website project! We hope you find it informative and useful. If you have any feedback or questions, please don't hesitate to reach out to us.
+Thank you for checking out our Learning Website project! We hope you find it informative and useful. If you have any feedback or questions, please don't hesitate to reach out to us.
