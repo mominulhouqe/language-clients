@@ -5,12 +5,12 @@ import useAuth from '../../../hooks/useAuth';
 import useAdmin from '../../../hooks/useAdmin';
 
 const Dashboard = () => {
-  const { user , loading} = useAuth();
+  const { user, loading } = useAuth();
   const [isAdminOrInstructor] = useAdmin();
+
   if (loading) {
     return (
       <div className="flex items-center justify-center h-full">
-
         <span className="loading loading-bars loading-xs"></span>
         <span className="loading loading-bars loading-sm"></span>
         <span className="loading loading-bars loading-md"></span>
@@ -33,7 +33,7 @@ const Dashboard = () => {
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 h-full bg-sky-900 text-white">
           {/* Sidebar content here */}
-          {isAdminOrInstructor === 'admin' ? (
+          {isAdminOrInstructor === 'admin' && (
             <>
               <li>
                 <NavLink to="/">
@@ -54,12 +54,13 @@ const Dashboard = () => {
                 </NavLink>
               </li>
             </>
-          ) : null}
-          {isAdminOrInstructor === 'instructor' ? (
+          )}
+
+          {isAdminOrInstructor === 'instructor' && (
             <li>
               <NavLink to="/">
                 <FaBook className="mr-2" />
-             Home
+                Home
               </NavLink>
               <NavLink to="/dashboard/addAclass">
                 <FaBook className="mr-2" />
@@ -69,15 +70,15 @@ const Dashboard = () => {
                 <FaBook className="mr-2" />
                 My Classes
               </NavLink>
-              
             </li>
-          ) : null}
-          {isAdminOrInstructor !== 'admin' && isAdminOrInstructor !== 'instructor' ? (
+          )}
+
+          {isAdminOrInstructor === 'student' && (
             <>
               <li>
                 <NavLink to="/">
                   <FaHome className="mr-2" />
-                 Home 
+                  Home
                 </NavLink>
                 <NavLink to="/dashboard/myclass">
                   <FaSchool className="mr-2" />
@@ -89,12 +90,11 @@ const Dashboard = () => {
                 </NavLink>
                 <NavLink to="/dashboard/payments">
                   <FaMoneyBill className="mr-2" />
-                 Payment
+                  Payment
                 </NavLink>
               </li>
-            
             </>
-          ) : null}
+          )}
         </ul>
       </div>
     </div>
