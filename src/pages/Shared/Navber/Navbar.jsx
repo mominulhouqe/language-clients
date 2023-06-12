@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../provider/AuthProvider';
 import { FaSignOutAlt } from 'react-icons/fa';
 import Banner from '../../Home/Banner/Banner';
 import useCart from '../../../hooks/useCart';
 
-
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+
 
   const {cart } = useCart();
   
@@ -30,6 +30,8 @@ const Navbar = () => {
       <li>
         <Link to="/class">Classes {cart?.length || 0}</Link>
       </li>
+    
+
       <li>
         <Link to="/dashboard/usersHome">Dashboard </Link>
 

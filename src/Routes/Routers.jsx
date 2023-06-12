@@ -93,12 +93,12 @@ export const router = createBrowserRouter([
             },
             {
                 path:'manageUsers',
-                element:<AllUsers></AllUsers>
+                element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
             }
             ,
             {
                 path:'manageClasses',
-                element:<ManageClasses></ManageClasses>
+                element:<AdminRoute><ManageClasses></ManageClasses></AdminRoute>
             },
             // instructor route
             {
