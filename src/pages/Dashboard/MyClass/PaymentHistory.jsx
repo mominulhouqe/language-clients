@@ -1,21 +1,29 @@
-import React from 'react';
+
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../../provider/AuthProvider';
 import { RiMailLine, RiCalendarLine, RiMoneyDollarCircleLine, RiCheckboxCircleLine } from 'react-icons/ri';
-import useAxiosSecure from '../../../hooks/useAxiosSecure';
-import { useQuery } from 'react-query';
 
 const PaymentHistory = () => {
-  const [axiosSecure] = useAxiosSecure();
+  const [sortedPaymentHistory, setSortedPaymentHistory]=useState([])
+  const {user}=useContext(AuthContext)
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const res = await fetch(
+          `https://server-pi-liart.vercel.app/users/payments/${encodeURIComponent(user.email)}`
+        );
+        const data = await res.json();
+        console.log(data);
+        setSortedPaymentHistory(data);
+      } catch (error) {
+        console.error('Error occurred while fetching data:', error);
+      }
+    };
 
-  const { data: selectedClasses = [] } = useQuery('selectedClasses', async () => {
-    const res = await axiosSecure('/payments');
-    return res.data;
-  });
-
-  // Sort the payment history in descending order based on the date
-  const sortedPaymentHistory = selectedClasses.sort((a, b) => new Date(b.date) - new Date(a.date));
-
+    fetchUserData();
+  }, [user.email]);
   return (
-    <div className="container mx-auto px-4">
+<div className="container mx-auto px-4">
       <h1 className="text-3xl font-bold mb-8">Payment History</h1>
       <table className="w-full bg-white shadow rounded">
         <thead>

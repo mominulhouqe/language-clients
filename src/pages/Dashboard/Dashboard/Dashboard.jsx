@@ -90,7 +90,7 @@ const Dashboard = () => {
                 </NavLink>
                 <NavLink to="/dashboard/paymentHistory">
                   <FaMoneyBill className="mr-2" />
-                  Payment
+                  Payment History
                 </NavLink>
               </li>
             </>
