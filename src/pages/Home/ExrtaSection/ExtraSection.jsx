@@ -6,15 +6,22 @@ const testimonialsData = [
   {
     id: 1,
     name: "John Doe",
-    avatar: "https://i.ibb.co/abc123/avatar1.jpg",
-    testimonial: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat vestibulum lorem, eget aliquam mauris pulvinar ut.",
+    avatar: "https://i.ibb.co/NyQhDBZ/my-img1.jpg",
+    testimonial: "consectetur adipiscing elit. Sed consequat vestibulum lorem, eget aliquam mauris pulvinar ut.",
   },
   {
     id: 2,
     name: "Jane Smith",
-    avatar: "https://i.ibb.co/abc123/avatar2.jpg",
+    avatar: "https://i.ibb.co/TYJ7MwT/my-img3.png",
     testimonial: "In eget est vitae libero vestibulum commodo. Ut vestibulum odio eget congue laoreet. Phasellus posuere orci non diam facilisis, sed aliquam erat faucibus.",
   },
+  {
+    id: 3,
+    name: "Soikat Smith",
+    avatar: "https://i.ibb.co/nP6Fx1g/my-img2.png",
+    testimonial: "In eget est vitae libero vestibulum commodo. Ut vestibulum odio eget congue laoreet. Phasellus posuere orci non diam facilisis, sed aliquam erat faucibus.",
+  },
+
   // Add more testimonial data
 ];
 
