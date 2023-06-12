@@ -20,6 +20,7 @@ import AddAClass from "../pages/Dashboard/Instructors/AddAClass";
 import InstructorsClass from "../pages/Dashboard/Instructors/InstructorsClass";
 import Payments from "../pages/Dashboard/PaymentCheckout/Payments";
 import PaymentHistory from "../pages/Dashboard/MyClass/PaymentHistory";
+import PrivateRoute from "./PrivateRoute";
 
 
 export const router = createBrowserRouter([
@@ -60,7 +61,7 @@ export const router = createBrowserRouter([
     },
     {
         path: 'dashboard',
-        element: <Dashboard />,
+        element: <PrivateRoute></PrivateRoute> ,
         children:[
             {
                 path:'usersHome',

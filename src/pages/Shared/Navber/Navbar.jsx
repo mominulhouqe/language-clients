@@ -9,14 +9,14 @@ const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
 
 
-  const {cart } = useCart();
-  
-  const handleLogOut =()=>{
+  const { cart } = useCart();
+
+  const handleLogOut = () => {
     logOut()
-    .then(()=>{})
-    .catch(error =>{
-      console.log(error.message);
-    })
+      .then(() => { })
+      .catch(error => {
+        console.log(error.message);
+      })
   }
 
   const menuItems = (
@@ -28,17 +28,19 @@ const Navbar = () => {
         <Link to="/instructors">Instructors</Link>
       </li>
       <li>
-        <Link to="/class">Classes {cart?.length || 0}</Link>
+        <Link to="/class">Classes</Link>
       </li>
-    
-
-      <li>
-        <Link to="/dashboard/usersHome">Dashboard </Link>
 
 
-      </li>
+
       {user ? (
         <>
+
+          <li>
+            <Link to="/dashboard/usersHome">Dashboard </Link>
+
+          </li>
+
           <div className="flex justify-center mx-2 items-center">
             {user.photoURL && (
               <div className="relative">
