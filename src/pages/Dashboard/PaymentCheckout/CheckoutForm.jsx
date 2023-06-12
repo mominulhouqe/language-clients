@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
+import './CheckoutForm.css'
+
+
 
 const CheckoutForm = ({ cart, price }) => {
   const stripe = useStripe();
@@ -125,7 +128,7 @@ const CheckoutForm = ({ cart, price }) => {
 
   return (
     <>
-      <form className="w-2/3 m-8 border-2xl" onSubmit={handleSubmit}>
+      <form className="w-2/3 m-8 " onSubmit={handleSubmit}>
         <CardElement
           options={{
             style: {
