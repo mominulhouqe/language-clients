@@ -88,7 +88,7 @@ const CheckoutForm = ({ cart, price }) => {
       // save payment information to the server
       if (cart && cart.length > 0) {
         const names = cart.map(item => item.name);
-        const ids = cart.map(item => item._id);
+        const menuId = cart.map(item => item._id);
         const emails = cart.map(item => item.email);
         const image = cart.map(item => item.image);
         const instructor = cart.map(item => item.instructor);
@@ -102,7 +102,8 @@ const CheckoutForm = ({ cart, price }) => {
             names,
             emails,
             image,
-            instructor
+            instructor,
+            menuId
           },
           date: new Date(),
         };

@@ -1,57 +1,75 @@
 import React from 'react';
-import { useQueryClient } from 'react-query';
-// import { useHistory } from 'react-router-dom';
+import { RiMailLine, RiCalendarLine, RiMoneyDollarCircleLine, RiCheckboxCircleLine } from 'react-icons/ri';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import { useQuery } from 'react-query';
 
 const PaymentHistory = () => {
-//   const history = useHistory();
-  const queryClient = useQueryClient();
   const [axiosSecure] = useAxiosSecure();
 
-  const selectedClasses = queryClient.getQueryData('selectedClasses') || [];
+  const { data: selectedClasses = [] } = useQuery('selectedClasses', async () => {
+    const res = await axiosSecure('/payments');
+    return res.data;
+  });
 
-  const handlePay = async (classId) => {
-    // Redirect to payment page
-    // history.push(`/payment/${classId}`);
-  };
+  // Sort the payment history in descending order based on the date
+  const sortedPaymentHistory = selectedClasses.sort((a, b) => new Date(b.date) - new Date(a.date));
 
   return (
-    <div>
-      <h1 className="text-2xl font-bold mb-6">My Selected Classes</h1>
-      <div className="overflow-x-auto">
-        <table className="min-w-full border divide-y divide-gray-200">
-          {/* Head */}
-          <thead className="bg-gray-50">
-            <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Class Image</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Class Name</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Instructor Name</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Instructor Email</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+    <div className="container mx-auto px-4">
+      <h1 className="text-3xl font-bold mb-8">Payment History</h1>
+      <table className="w-full bg-white shadow rounded">
+        <thead>
+          <tr>
+            <th className="py-4 px-6 bg-gray-100 border-b border-gray-300 text-sm font-medium text-gray-600">Your Email</th>
+            <th className="py-4 px-6 bg-gray-100 border-b border-gray-300 text-sm font-medium text-gray-600">Date</th>
+            <th className="py-4 px-6 bg-gray-100 border-b border-gray-300 text-sm font-medium text-gray-600">Amount</th>
+            <th className="py-4 px-6 bg-gray-100 border-b border-gray-300 text-sm font-medium text-gray-600">Transaction</th>
+            <th className="py-4 px-6 bg-gray-100 border-b border-gray-300 text-sm font-medium text-gray-600">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {sortedPaymentHistory.map((payment) => (
+            <tr key={payment._id}>
+              <td className="py-4 px-6 border-b border-gray-300">
+                <div className="flex items-center">
+                  <RiMailLine className="text-gray-600 text-lg mr-2" />
+                  <span className="text-sm font-medium text-gray-800">{payment.email}</span>
+                </div>
+              </td>
+              <td className="py-4 px-6 border-b border-gray-300">
+                <div className="flex items-center">
+                  <RiCalendarLine className="text-gray-600 text-lg mr-2" />
+                  <span className="text-sm font-medium text-gray-800">{payment.date}</span>
+                </div>
+              </td>
+              <td className="py-4 px-6 border-b border-gray-300">
+                <div className="flex items-center">
+                  <RiMoneyDollarCircleLine className="text-gray-600 text-lg mr-2" />
+                  <span className="text-sm font-medium text-gray-800">${payment.price}</span>
+                </div>
+              </td>
+              <td className="py-4 px-6 border-b border-gray-300">
+                <div className="flex items-center">
+                  <RiCheckboxCircleLine className="text-green-600 text-lg mr-2" />
+                  <span className="text-sm font-medium text-green-600">{payment.transactionId}</span>
+                </div>
+              </td>
+              <td className="py-4 px-6 border-b border-gray-300">
+                <div className="flex items-center">
+                  {payment.status === 'successful' ? (
+                    <RiCheckboxCircleLine className="text-green-600 text-lg mr-2" />
+                  ) : (
+                    <RiCheckboxCircleLine className="text-yellow-600 text-lg mr-2" />
+                  )}
+                  <span className={payment.status === 'successful' ? 'text-sm font-medium text-green-600' : 'text-sm font-medium text-yellow-600'}>
+                    {payment.status}
+                  </span>
+                </div>
+              </td>
             </tr>
-          </thead>
-          {/* Body */}
-          <tbody className="bg-white divide-y divide-gray-200">
-            {selectedClasses.map((cls) => (
-              <tr key={cls.id}>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <img src={cls.image} alt={cls.name} className="h-12 w-12 rounded-full" />
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">{cls.name}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{cls.instructor}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{cls.instructorEmail}</td>
-                <td className="px-6 py-4 whitespace-nowrap">${cls.price}</td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <button className="btn btn-primary btn-sm" onClick={() => handlePay(cls.id)}>
-                    Pay
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

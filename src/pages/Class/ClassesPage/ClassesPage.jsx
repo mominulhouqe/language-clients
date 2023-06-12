@@ -109,9 +109,9 @@ const ClassesPage = ({ isAdmin }) => {
           
               <div
                 key={classItem._id}
-                className={`bg-white rounded-lg shadow-lg ${classItem.
-                  availableseats === 0 ? "bg-red-100" : ""
-                  }`}
+                className={`bg-white rounded-lg shadow-lg ${
+                  classItem.availableseats === 0 ? "bg-red-300" : ""
+                }`}
                 data-aos="fade-bottom"
               >
                 <img
@@ -148,59 +148,3 @@ const ClassesPage = ({ isAdmin }) => {
 
 export default ClassesPage;
 
-
-/* 
-
-
-
-
-
-
-
-
-[
-  {
-    "image": "https://i.ibb.co/sKK3Mdj/my-img1.webp",
-    "name": "Spanish for Beginners",
-    "instructor": "Maria Rodriguez",
-    "availableseats": 20,
-    "price": 49.99
-  },
-  {
-    "image": "https://i.ibb.co/xM8dQ4v/my-img4.webp",
-    "name": "French Conversation",
-    "instructor": "Jean-Claude Leblanc",
-    "availableseats": 15,
-    "price": 59.99
-  },
-  {
-    "image": "https://i.ibb.co/fkjL6D8/my-img6.webp",
-    "name": "German Grammar Mastery",
-    "instructor": "Hans Müller",
-    "availableseats": 10,
-    "price": 69.99
-  },
-  {
-    "image": "https://i.ibb.co/ygZytJk/my-img7.jpg",
-    "name": "Italian Pronunciation Workshop",
-    "instructor": "Giulia Rossi",
-    "availableseats": 12,
-    "price": 39.99
-  },
-  {
-    "image": "https://i.ibb.co/QfGvRkb/my-imgf06.webp",
-    "name": "Chinese Characters Simplified",
-    "instructor": "Li Wei",
-    "availableseats": 8,
-    "price": 79.99
-  },
-  {
-    "image": "https://i.ibb.co/XtN07RR/my-imgf08.webp",
-    "name": "Japanese Kanji Mastery",
-    "instructor": "Takeshi Nakamura",
-    "availableseats": 18,
-    "price": 89.99
-  }
-]
-
-*/

@@ -2,49 +2,47 @@ import React from 'react';
 import { useQuery } from 'react-query';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
-const Enrollied = () => {
+const Enrolled = () => {
   const [axiosSecure] = useAxiosSecure();
 
-  const { data: selectedClasses = [] } = useQuery('selectedClasses', async () => {
+  const { data: selectedClasses = [] } = useQuery('payments', async () => {
     const res = await axiosSecure('/payments');
     return res.data;
   });
-console.log(selectedClasses);
+
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-6">My Classes</h1>
-      <div className="overflow-x-auto">
-        <table className="min-w-full border divide-y divide-gray-200">
-          {/* Head */}
-          <thead className="bg-gray-50">
-            <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Class Image</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Class Name</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Instructor Name</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Instructor Email</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Transiction</th>
-            </tr>
-          </thead>
-          {/* Body */}
-          <tbody className="bg-white divide-y divide-gray-200">
-            {selectedClasses.map((cls) => (
-              <tr key={cls.id}>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <img src={cls.image} alt={cls.name} className="h-12 w-12 rounded-full" />
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">{cls.name}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{cls.instructor}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{cls.email}</td>
-                <td className="px-6 py-4 whitespace-nowrap">${cls.price}</td>
-                <td className="px-6 py-4 whitespace-nowrap">${cls.transactionId}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <h1 className="text-2xl font-bold mb-6">My Enrolled Classes</h1>
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {selectedClasses.map((cls) => (
+          <div key={cls._id} className="bg-white shadow-lg rounded-lg overflow-hidden">
+            <div className="relative">
+              <img src={cls?.cart?.image[0]} alt={cls?.cart?.image[0]} className="h-48 w-full object-cover" />
+              <button className="absolute top-2 right-2 bg-green-500 text-white rounded-full p-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M17.707 6.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 13.586l7.293-7.293a1 1 0 011.414 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div className="px-6 py-4">
+              <h2 className="text-lg font-bold text-gray-800">{cls?.cart?.names[0]}</h2>
+              <p className="text-gray-600">${cls.price}</p>
+              <p className="text-gray-600">{cls.email}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
 };
 
-export default Enrollied;
+export default Enrolled;

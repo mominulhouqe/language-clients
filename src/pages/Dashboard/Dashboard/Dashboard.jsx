@@ -88,7 +88,7 @@ const Dashboard = () => {
                   <FaBook className="mr-2" />
                   My Enrolled Class
                 </NavLink>
-                <NavLink to="/dashboard/payments">
+                <NavLink to="/dashboard/paymentHistory">
                   <FaMoneyBill className="mr-2" />
                   Payment
                 </NavLink>
