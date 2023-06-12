@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaGoogle } from 'react-icons/fa';
-import { Link, } from 'react-router-dom';
+import { Link, useNavigate, } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
@@ -14,7 +14,7 @@ const RegistrationForm = () => {
     formState: { errors },
   } = useForm();
 
-
+  const navigate = useNavigate();
   const { createUser, updatedUserProfiles } = useContext(AuthContext);
 
   const onSubmit = (data) => {
@@ -22,10 +22,8 @@ const RegistrationForm = () => {
     console.log(data);
     createUser(data.email, data.password)
       .then(result => {
-
         const loggedUser = result.user;
-        console.log(loggedUser);
-
+    
         updatedUserProfiles(data.name, data.photoURL)
           .then(() => {
             const saveUser = { name: data.name, email: data.email ,role:'student'}
@@ -47,7 +45,7 @@ const RegistrationForm = () => {
                     showConfirmButton: false,
                     timer: 1500
                   });
-                  // navigate('/');
+                  navigate('/');
                 }
               })
 
@@ -89,8 +87,8 @@ const RegistrationForm = () => {
           </label>
           <input
             type="text"
-            id="photoUrl"
-            {...register('photoUrl')}
+            id="photoURL"
+            {...register('photoURL')}
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>

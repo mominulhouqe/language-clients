@@ -45,9 +45,7 @@ const Navbar = () => {
             {user.photoURL && (
               <div className="relative">
                 <img src={user.photoURL} alt="Profile" className="h-8 w-8 rounded-full" />
-                {/* <span className="tooltip-bottom rounded  text-white py-1 px-2   ">
-                  {user.displayName}
-                </span> */}
+                
               </div>
             )}
             <Link to="/login" onClick={handleLogOut} className="ms-5 btn-sm btn">
