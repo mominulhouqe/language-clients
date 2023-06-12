@@ -8,7 +8,7 @@ const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 
 const Payments = () => {
     const { cart } = useCart();
-    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    // const total = cart.reduce((sum, item) => sum + item.price, 0);
     // const price = parseFloat(total.toFixed(2));
 
     const [storedPrice, setStoredPrice] = useState(null);
@@ -23,10 +23,10 @@ const Payments = () => {
 
     return (
         <div>
-            <h2 className="text-3xl">Teka o teka tumi uira uira aso...</h2>
-            <h3>Price from localStorage: $ {storedPrice}</h3>
+            <h2 className="text-3xl"> Please Payment !!! .</h2>
+            <h3>Your total Price : $ {storedPrice}</h3>
             <Elements stripe={stripePromise}>
-                <CheckoutForm price={storedPrice}></CheckoutForm>
+                <CheckoutForm price={storedPrice} cart={cart}></CheckoutForm>
             </Elements>
         </div>
     );
