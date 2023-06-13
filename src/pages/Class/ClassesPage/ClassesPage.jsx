@@ -13,11 +13,12 @@ import useCart from "../../../hooks/useCart";
 
 const ClassesPage = ({ isAdmin }) => {
   
-  const { user , loading} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
-  const [menu] = useMenu()
+  const [menu , loading] = useMenu()
   const {refetch} = useCart();
+console.log(menu)
   useEffect(() => {
     AOS.init({
       duration: 800,
@@ -103,6 +104,7 @@ const ClassesPage = ({ isAdmin }) => {
       <Cover img={img} title="Approved Classes"></Cover>
       <div className="container mx-auto my-6">
         <div className="">
+       
 
           <div className="grid mt-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {menu.map(classItem =>
@@ -110,7 +112,7 @@ const ClassesPage = ({ isAdmin }) => {
               <div
                 key={classItem._id}
                 className={`bg-white rounded-lg shadow-lg ${
-                  classItem.availableseats === 0 ? "bg-red-300" : ""
+                  classItem.availableseats === 0 ? "bg-red-400" : ""
                 }`}
                 data-aos="fade-bottom"
               >

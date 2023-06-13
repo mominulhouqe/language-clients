@@ -45,7 +45,7 @@ export const router = createBrowserRouter([
             },
 
             {
-                path: 'class',
+                path: 'populareClass',
                 element: <ClassesPage></ClassesPage>
             },
 
@@ -61,7 +61,7 @@ export const router = createBrowserRouter([
     },
     {
         path: 'dashboard',
-        element: <PrivateRoute> <Dashboard></Dashboard> </PrivateRoute> ,
+        element: <PrivateRoute><Dashboard></Dashboard> </PrivateRoute>,
         children:[
             {
                 path:'usersHome',
