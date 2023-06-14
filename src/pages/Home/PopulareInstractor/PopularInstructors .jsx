@@ -45,7 +45,7 @@ const PopularInstructors = () => {
               variants={item}
             >
               <img
-                src={instructor.image}
+                src={instructor.imgae}
                 alt={instructor.name}
                 className="w-32 h-32 rounded-full mb-4"
               />

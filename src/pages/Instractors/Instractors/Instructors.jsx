@@ -23,7 +23,8 @@ const Instructors = () => {
               />
               <h3 className="text-lg font-semibold mb-2">{instructor.name}</h3>
               <p className="text-sm text-gray-500 mb-2">{instructor.email}</p>
-              {instructor.numClasses && (
+             
+              {instructor.student && (
                 <p className="text-sm text-gray-500 mb-2">
                   Number of Classes: {instructor.student}
                 </p>

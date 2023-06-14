@@ -89,7 +89,7 @@ const AllUsers = () => {
                   ) : (
                     <button
                       onClick={() => handleMakeInstructor(user)}
-                      className="text-gray-500  p-2 hover:text-white rounded transition-colors duration-300 ml-4 focus:outline-none"
+                      className="text-gray-500  p-2 hover:text-black rounded transition-colors duration-300 ml-4 focus:outline-none"
                     >
                       Make Instructor
                     </button>
