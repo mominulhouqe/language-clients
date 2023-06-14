@@ -113,13 +113,7 @@ const CheckoutForm = ({ cart, price }) => {
             console.log(res.data);
             if (res.data.insertResult.insertedId) {
               handlePaymentSuccess(); // Display SweetAlert after successful payment
-              // const paymentId = res.data.insertResult.insertedId;
-              // axiosSecure.delete(`/payments/${paymentId}`)
-              //     .then(() => {
-              //     })
-              //     .catch(err => {
-              //         console.log(err);
-              //     });
+              
             }
           });
       }

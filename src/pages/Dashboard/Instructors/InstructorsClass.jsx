@@ -6,8 +6,8 @@ import { AuthContext } from '../../../provider/AuthProvider';
 
 const InstructorsClass = () => {
 
-  const { user, loading } = useContext(AuthContext);
-  const [menu] = useMenu();
+  const { user} = useContext(AuthContext);
+  const [menu,  loading ] = useMenu();
 
   const renderUserItems = () => {
     const filteredItems = menu.filter((item) => item.email === user?.email);

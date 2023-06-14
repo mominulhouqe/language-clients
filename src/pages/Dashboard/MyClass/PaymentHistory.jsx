@@ -13,7 +13,7 @@ const PaymentHistory = () => {
           `https://server-pi-liart.vercel.app/users/payments/${encodeURIComponent(user.email)}`
         );
         const data = await res.json();
-        console.log(data);
+   
         setSortedPaymentHistory(data);
       } catch (error) {
         console.error('Error occurred while fetching data:', error);

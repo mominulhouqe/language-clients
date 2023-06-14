@@ -9,7 +9,7 @@ const Myclass = () => {
     const total = cart.reduce((sum, item) => sum + item.price, 0);
 
     const handleDelete = (classId) => {
-        console.log(`Deleting class with id: ${classId}`);
+   
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",

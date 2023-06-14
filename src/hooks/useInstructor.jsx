@@ -2,8 +2,7 @@ import { useEffect, useState } from "react"
 
 const useInstructor = () => {
     const [instructors, setInstructors] = useState([]);
-const {user} = useState()
-console.log(instructors);
+
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {

@@ -7,7 +7,7 @@ import img from '../../../assets/img2.jpg'
 const Instructors = () => {
 
   const [instructors] =useInstructor()
-console.log(instructors);
+
   return (
     <div>
         <Cover img={img} title="Instructors"></Cover>

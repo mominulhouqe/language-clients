@@ -1,5 +1,4 @@
 import React from 'react';
-import { FaTrashAlt, FaUser, FaUserShield, FaChalkboardTeacher } from 'react-icons/fa';
 import { useQuery } from 'react-query';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
@@ -11,7 +10,7 @@ const AllUsers = () => {
     const res = await axiosSecure('/users');
     return res.data;
   });
-console.log(users);
+
   const handleMakeAdmin = user => {
     fetch(`https://server-pi-liart.vercel.app/users/admin/${user._id}`, {
       method: 'PATCH',
@@ -31,7 +30,6 @@ console.log(users);
   };
 
   const handleMakeInstructor = user => {
-    console.log('click make ins');
     fetch(`https://server-pi-liart.vercel.app/users/instructor/${user._id}`, {
       method: 'PATCH',
     })
@@ -70,39 +68,32 @@ console.log(users);
                 <td className="py-3 pl-4">{user.email}</td>
                 <td className="py-3 pl-4">
                   {user.role === 'admin' ? (
-                    <span className="text-green-500">
-                      <FaUserShield className='text-2xl' />
-                      Admin
-                    </span>
+                    <span className="text-green-500 font-bold">Admin</span>
                   ) : (
-                    <span className="text-purple-500">
-                      <FaChalkboardTeacher className='text-2xl'/>
-                      Instructor
-                    </span>
+                    <span className="text-purple-500 font-bold">Instructor</span>
                   )}
                 </td>
                 <td className="py-3 pl-4">
                   {user.role === 'admin' ? (
-                    <FaUserShield className="text-gray-500 font-2xl" />
+                    <span className="text-gray-500 font-bold">Admin</span>
                   ) : (
                     <button
                       onClick={() => handleMakeAdmin(user)}
-                      className="text-gray-500 hover:text-orange-500 transition-colors duration-300"
+                      className="text-gray-500 hover:text-orange-500 p-2 rounded  transition-colors duration-300 focus:outline-none"
                     >
-                      <FaUserShield className='text-2xl' />
+                      Make Admin
                     </button>
                   )}
                   {user.role === 'instructor' ? (
-                    <FaChalkboardTeacher className="text-gray-500 font-2xl ml-4" />
+                    <span className="text-gray-500 font-bold ml-4">Instructor</span>
                   ) : (
                     <button
                       onClick={() => handleMakeInstructor(user)}
-                      className="text-gray-500 hover:text-purple-500 transition-colors duration-300 ml-4"
+                      className="text-gray-500  p-2 hover:text-white rounded transition-colors duration-300 ml-4 focus:outline-none"
                     >
-                      <FaChalkboardTeacher className='text-2xl' />
+                      Make Instructor
                     </button>
                   )}
-                  
                 </td>
               </tr>
             ))}
