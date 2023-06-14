@@ -16,7 +16,8 @@ const SocialLogin = () => {
     .then(result => {
       const loggedUser = result.user;
 
-      const saveUser = { name: data.name, email: data.email,imgae:data.photoURL,student:'44', role:'student'}
+      const saveUser = { name:loggedUser.displayName, email: loggedUser.email, imgae:loggedUser.photoURL ,student:'44', role:'student'}
+      console.log(saveUser);
       fetch('https://server-pi-liart.vercel.app/users', {
         method: 'POST',
         headers: {
@@ -31,7 +32,7 @@ const SocialLogin = () => {
         title: 'Login Successful',
         text: `Logged in as ${loggedUser.email}`,
       });
-      navigate(from); 
+      navigate(from, { replace: true });
     })
 
 
@@ -39,6 +40,7 @@ const SocialLogin = () => {
       
     })
     .catch(error => {
+      console.log(error.message);
       Swal.fire({
         icon: 'error',
         title: 'Login Failed',
