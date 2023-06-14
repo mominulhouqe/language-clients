@@ -16,7 +16,7 @@ const SocialLogin = () => {
     .then(result => {
       const loggedUser = result.user;
 
-      const saveUser = { name: loggedUser.displayName, email: loggedUser.email, role:'student' }
+      const saveUser = { name: data.name, email: data.email,imgae:data.photoURL,student:'44', role:'student'}
       fetch('https://server-pi-liart.vercel.app/users', {
         method: 'POST',
         headers: {
@@ -61,39 +61,3 @@ const SocialLogin = () => {
 export default SocialLogin;
 
 
-
-  /* 
-  .then(result => {
-                  const loggedInUser = result.user;
-                  console.log(loggedInUser);
-                  const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email }
-                  fetch('https://server-pi-liart.vercel.app/users', {
-                      method: 'POST',
-                      headers: {
-                          'content-type': 'application/json'
-                      },
-                      body: JSON.stringify(saveUser)
-                  })
-                      .then(res => res.json())
-                      .then(() => {
-                          navigate(from, { replace: true });
-                      })
-              })
-  
-  */
- // .then(result => {
- //   const loggedInUser = result.user;
- //   console.log(loggedInUser);
- //   const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email }
- //   fetch('https://server-pi-liart.vercel.app/users', {
- //     method: 'POST',
- //     headers: {
- //       'content-type': 'application/json'
- //     },
- //     body: JSON.stringify(saveUser)
- //   })
- //     .then(res => res.json())
- //     .then(() => {
- //       navigate(from, { replace: true });
- //     })
- // })

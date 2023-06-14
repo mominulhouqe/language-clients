@@ -51,7 +51,7 @@ const PopularInstructors = () => {
               />
               <h3 className="text-xl font-semibold mb-2"> {instructor.name}</h3>
               <p className="text-gray-600">{instructor.title}</p>
-              <p className="text-gray-600"> Students : {instructor.students}</p>
+              <p className="text-gray-600"> Students : {instructor.student}</p>
             </motion.div>
           ))}
         </motion.div>

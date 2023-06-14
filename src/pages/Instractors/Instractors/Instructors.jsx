@@ -7,7 +7,7 @@ import img from '../../../assets/img2.jpg'
 const Instructors = () => {
 
   const [instructors] =useInstructor()
-
+console.log(instructors);
   return (
     <div>
         <Cover img={img} title="Instructors"></Cover>
@@ -17,7 +17,7 @@ const Instructors = () => {
           {instructors.map((instructor) => (
             <div key={instructor._id} className="bg-white p-4  rounded-md shadow-md">
               <img
-                src={instructor.image}
+                src={instructor.imgae}
                 alt={instructor.name}
                 className="w-24  h-24 rounded-full object-cover mb-2"
               />
@@ -25,7 +25,7 @@ const Instructors = () => {
               <p className="text-sm text-gray-500 mb-2">{instructor.email}</p>
               {instructor.numClasses && (
                 <p className="text-sm text-gray-500 mb-2">
-                  Number of Classes: {instructor.numClasses}
+                  Number of Classes: {instructor.student}
                 </p>
               )}
               {instructor.classNames && (

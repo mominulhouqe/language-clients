@@ -11,7 +11,7 @@ const AllUsers = () => {
     const res = await axiosSecure('/users');
     return res.data;
   });
-
+console.log(users);
   const handleMakeAdmin = user => {
     fetch(`https://server-pi-liart.vercel.app/users/admin/${user._id}`, {
       method: 'PATCH',
