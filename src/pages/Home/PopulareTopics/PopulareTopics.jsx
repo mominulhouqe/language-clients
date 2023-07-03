@@ -59,49 +59,58 @@ const PopulareTopics = () => {
 
     return (
         <div className="bg-gray-100 py-12">
-            <div className="container mx-auto px-4">
-                <h2 className="text-4xl font-bold text-center mb-8">Popular Topics</h2>
-
-                <div className="grid lg:grid-cols-7 grid-cols-2 mb-6 gap-1">
-                    {items.map((item, index) => (
-                        <div key={index} className="p-2 border text-center text-gray-600 rounded-lg shadow-lg">
-                            <p className="font-bold">{item.name}</p>
-                        </div>
-                    ))}
-                </div>
-
-                <div>
-                    <Swiper
-                        slidesPerView={2}
-                        scrollbar={{ draggable: true }}
-                        modules={[Scrollbar]}
-                        className="mySwiper"
-                        ref={swiperRef}
-                    >
-                        {items.map((item, index) => (
-                            <SwiperSlide key={index}>
-                                <div className="p-4 border rounded-lg flex shadow-md">
-                                    <div>
-                                        <div key={index} className="p-2  text-gray-600 rounded-lg shadow-lg">
-                                            <p className="font-bold">{item.name2}</p>
-                                        </div>
-                                        <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                                        <p>{item.description}</p>
-                                        <button className='btn mt-12 btn-primary btn-outline'>  Learn More</button>
-                                    </div>
-                                    <img
-                                        src={item.image}
-                                        alt={item.name}
-                                        className="rounded-lg w-80 h-auto ml-4"
-                                    />
-                                 
-                                </div>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
-                </div>
-            </div>
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-8">Popular Topics</h2>
+  
+          <div className="grid lg:grid-cols-7 grid-cols-2 mb-6 gap-1">
+            {items.map((item, index) => (
+              <div
+                key={index}
+                className="p-2 border hover:bg-gray-600 hover:text-white text-center text-gray-600 rounded-lg shadow-lg"
+              >
+                <p className="font-bold">{item.name}</p>
+              </div>
+            ))}
+          </div>
+  
+          <div>
+            <Swiper
+              slidesPerView={1}
+              slidesPerGroup={2}
+              spaceBetween={10}
+              scrollbar={{ draggable: true }}
+              modules={[Scrollbar]}
+              className="mySwiper "
+              ref={swiperRef}
+            >
+              {items.map((item, index) => (
+                <SwiperSlide className='w-96' key={index}>
+                  <div className="p-4 border rounded-lg flex justify-between shadow-md">
+                    <div className='w-1/2'>
+                      <div
+                        key={index}
+                        className="p-2 text-gray-600 rounded-lg shadow-lg"
+                      >
+                        <p className="font-bold">{item.name2}</p>
+                      </div>
+                      <h3 className="text-xl font-bold hover:underline mb-2">{item.title}</h3>
+                      <p>{item.description}</p>
+                      <button className="btn mt-12 btn-primary btn-sm btn-outline">
+                        Learn More
+                      </button>
+                    </div>
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="rounded-lg w-1/2 h-56 ml-4"
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         </div>
+      </div>
     );
 };
 
