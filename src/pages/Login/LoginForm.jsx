@@ -88,7 +88,7 @@ const LoginForm = () => {
           </div>
           <button
             type="submit"
-            className="btn btn-primary btn-md py-2 px-4 rounded focus:outline-none focus:ring focus:ring-blue-200"
+            className="btn btn-neutral btn-md py-2 px-4 rounded focus:outline-none focus:ring focus:ring-blue-200"
           >
             Login
           </button>

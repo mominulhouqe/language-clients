@@ -75,7 +75,7 @@ const ManageClasses = () => {
                     <MdClear className="inline-block mr-1" />
                     Deny
                   </button>
-                  <button className="btn btn-primary btn-sm" onClick={() => handleSendFeedback(cls._id)} disabled={status === 'approved' || status === 'denied'}>
+                  <button className="btn btn-neutral btn-sm" onClick={() => handleSendFeedback(cls._id)} disabled={status === 'approved' || status === 'denied'}>
                     <MdChat className="inline-block mr-1" />
                     Send Feedback
                   </button>
@@ -92,7 +92,7 @@ const ManageClasses = () => {
             <h2 className="text-xl font-bold mb-4">Send Feedback</h2>
             <textarea className="w-full h-20 mb-4" placeholder="Enter feedback here..." />
             <div className="flex justify-end">
-              <button className="btn btn-primary mr-2" onClick={handleFeedbackSubmit}>
+              <button className="btn btn-neutral mr-2" onClick={handleFeedbackSubmit}>
                 Send
               </button>
               <button className="btn btn-secondary" onClick={handleCloseModal}>

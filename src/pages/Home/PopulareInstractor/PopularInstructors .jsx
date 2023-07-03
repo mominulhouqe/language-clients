@@ -59,7 +59,7 @@ const PopularInstructors = () => {
         </motion.div>
         <Link to='/instructors'>
           <div className="text-end">
-            <button className="btn btn-primary">See more <FaArrowAltCircleRight /> </button>
+            <button className="btn btn-neutral">See more <FaArrowAltCircleRight /> </button>
           </div>
         </Link>
       </div>

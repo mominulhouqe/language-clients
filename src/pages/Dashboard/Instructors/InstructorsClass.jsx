@@ -54,7 +54,7 @@ const InstructorsClass = () => {
               <p className="text-gray-600">Feedback: {item.feedback}</p>
             </div>
           )}
-          <button className="btn btn-primary hover:bg-blue-600 text-white py-2 px-4 rounded-md mt-4">
+          <button className="btn btn-neutral hover:bg-blue-600 text-white py-2 px-4 rounded-md mt-4">
             Update
           </button>
         </div>

@@ -14,7 +14,7 @@ const Translation = () => {
                         <p className="py-6">
                             Interpreting, or "interpretation," is the facilitation of oral or sign-language communication, either simultaneously or consecutively, between two, or among three or more, speakers who are not speaking, or signing, the same language. The term is used for this activity to avoid confusion.
                         </p>
-                        <button className="btn btn-primary">Get Started</button>
+                        <button className="btn btn-neutral">Get Started</button>
                     </div>
                     <div className="relative flex gap-12 justify-center items-center">
                         <div className="relative">

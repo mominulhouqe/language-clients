@@ -25,7 +25,7 @@ const Dashboard = () => {
       <div className="drawer-content flex flex-col items-start justify-start">
         {/* Page content here */}
         <Outlet />
-        <label htmlFor="my-drawer-2" className="btn mx-5 my-6 btn-primary drawer-button lg:hidden">
+        <label htmlFor="my-drawer-2" className="btn mx-5 my-6 btn-neutral drawer-button lg:hidden">
           Open drawer
         </label>
       </div>

@@ -153,7 +153,7 @@ const RegistrationForm = () => {
             <input
               type="submit"
               value="Register"
-              className="w-full px-4 py-2 btn btn-primary cursor-pointer"
+              className="w-full px-4 py-2 btn btn-neutral cursor-pointer"
             />
           </div>
         </div>

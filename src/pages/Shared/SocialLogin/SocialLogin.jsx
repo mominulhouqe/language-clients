@@ -51,7 +51,7 @@ const SocialLogin = () => {
   return (
     <div>
       <button
-        className="w-full btn btn-outline btn-primary px-4 py-2 cursor-pointer"
+        className="w-full btn btn-outline btn-neutral px-4 py-2 cursor-pointer"
         onClick={handleGoogleLogin}
       >
         <FaGoogle /> Social Login
