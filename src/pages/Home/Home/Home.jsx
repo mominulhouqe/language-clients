@@ -7,6 +7,7 @@ import Translation from '../Translation/Translation';
 import PopularClasses from '../PopularClasses/PopularClasses';
 import PopulareTopics from '../PopulareTopics/PopulareTopics';
 import Frequently from '../Frequently/Frequently';
+import JoinUs from '../JoinUs/JoinUs';
 
 
 const Home = () => {
@@ -20,6 +21,7 @@ const Home = () => {
             <PopulareTopics />
             <Frequently />
             <ExtraSection></ExtraSection>
+            <JoinUs />
         </div>
     );
 };
