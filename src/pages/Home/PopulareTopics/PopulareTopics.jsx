@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
-import SwiperCore, { Scrollbar } from 'swiper';
+import SwiperCore, { Pagination, Scrollbar } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
+import 'swiper/css/pagination';
 
 const PopulareTopics = () => {
     const swiperRef = useRef(null);
@@ -79,9 +79,13 @@ const PopulareTopics = () => {
               slidesPerGroup={2}
               spaceBetween={10}
               scrollbar={{ draggable: true }}
-              modules={[Scrollbar]}
+              modules={[Pagination]}
               className="mySwiper "
               ref={swiperRef}
+              pagination={{
+                clickable: true,
+              }}
+            
             >
               {items.map((item, index) => (
                 <SwiperSlide className='w-96' key={index}>
