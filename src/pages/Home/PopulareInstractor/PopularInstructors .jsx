@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import useInstructor from "../../../hooks/useInstructor";
+import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const container = {
   hidden: { opacity: 1, scale: 0 },
@@ -29,7 +31,7 @@ const PopularInstructors = () => {
   return (
     <section className="py-12 bg-gray-100">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-semibold text-center mb-8">
+        <h2 className="text-4xl font-bold text-center mb-8">
           Popular Instructors
         </h2>
         <motion.div
@@ -55,6 +57,11 @@ const PopularInstructors = () => {
             </motion.div>
           ))}
         </motion.div>
+        <Link to='/instructors'>
+          <div className="text-end">
+            <button className="btn btn-primary">See more <FaArrowAltCircleRight /> </button>
+          </div>
+        </Link>
       </div>
     </section>
   );

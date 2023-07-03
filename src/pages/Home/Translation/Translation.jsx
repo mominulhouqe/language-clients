@@ -2,8 +2,8 @@ import React from 'react';
 
 const Translation = () => {
     return (
-        <div>
-            <div className="hero  min-h-screen bg-base-200 container mx-auto">
+        <div className='bg-base-200'>
+            <div className="hero  container mx-auto">
                 <div className="hero-content flex flex-col lg:flex-row-reverse ">
                     <div className="w-full lg:w-1/2">
                         <div className="flex justify-center items-center">
@@ -24,7 +24,6 @@ const Translation = () => {
                             <img src="https://i.ibb.co/KwFsQVB/my-img1-1.jpg" className="max-w-sm rounded-lg shadow-2xl" />
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
